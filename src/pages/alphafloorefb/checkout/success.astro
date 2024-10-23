@@ -1,0 +1,518 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Purchase Confirmation — AlphaFloor EFB"
+  description="Payment confirmed. Download your AlphaFloor EFB license file and view activation instructions."
+>
+  <div class="checkout-page-wrapper section">
+    <div class="container">
+      <div class="checkout-card glass-panel" id="checkout-card">
+        
+        <!-- State 1: Verifying / Polling Loader -->
+        <div id="state-loading" class="checkout-state">
+          <div class="loader-spinner">
+            <svg class="animate-spin" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="3" stroke="rgba(56, 189, 248, 0.2)"></circle>
+              <path stroke-linecap="round" stroke-width="3" stroke="#38bdf8" d="M12 2a10 10 0 0 1 10 10"></path>
+            </svg>
+          </div>
+          <h1 class="state-title">Verifying Payment with Stripe...</h1>
+          <p class="state-subtitle">
+            We are confirming your transaction and cryptographically provisioning your AlphaFloor EFB license key. This usually takes just a few seconds.
+          </p>
+          <div class="session-pill" id="session-pill-box">
+            <span class="session-label">STRIPE SESSION:</span>
+            <span class="session-id-val mono" id="session-id-display">Detecting...</span>
+          </div>
+        </div>
+
+        <!-- State 2: Success & License Delivery -->
+        <div id="state-success" class="checkout-state" style="display: none;">
+          <div class="success-icon-wrap">
+            <svg width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="#00e676">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+
+          <span class="section-tag green">Transaction Complete</span>
+          <h1 class="state-title">Welcome to AlphaFloor EFB!</h1>
+          <p class="state-subtitle">
+            Your payment was successfully processed. Your node-locked lifetime license is now active and ready for your flight deck.
+          </p>
+
+          <!-- License Information Box -->
+          <div class="license-details-box">
+            <div class="license-meta-row">
+              <div class="meta-item">
+                <span class="meta-label">PRODUCT</span>
+                <span class="meta-val">AlphaFloor EFB (Lifetime)</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">DEVICE LIMIT</span>
+                <span class="meta-val">Up to 3 Machines</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">LICENSE ID</span>
+                <span class="meta-val mono" id="license-id-display">-</span>
+              </div>
+            </div>
+
+            <div class="key-display-section">
+              <label class="key-label">YOUR ACTIVATION LICENSE KEY:</label>
+              <div class="key-box">
+                <input type="text" id="license-key-input" readonly class="key-input mono" value="Loading key..." />
+                <button id="copy-key-btn" class="btn btn-secondary btn-sm" title="Copy to clipboard">
+                  <span id="copy-key-text">Copy Key</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Download License File Action -->
+            <div class="download-box">
+              <button id="download-lic-btn" class="btn btn-success btn-lg btn-block">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Download License File (AlphaFloorEFB.lic)</span>
+              </button>
+              <p class="download-hint">
+                Recommended: Download the file and drop it directly into your plugin folder for effortless activation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step-by-Step Installation & Activation -->
+          <div class="activation-steps-box">
+            <h3 class="steps-heading">How to Activate in X-Plane 12:</h3>
+            <div class="steps-list">
+              <div class="activation-step">
+                <span class="step-badge">Method A</span>
+                <div>
+                  <strong>Drop File into Plugins Folder (Easiest)</strong>
+                  <p>
+                    Download <code class="code-token">AlphaFloorEFB.lic</code> using the button above, and move it into:
+                    <code class="code-path">X-Plane 12/Resources/plugins/AlphaFloorEFB/AlphaFloorEFB.lic</code>
+                    The plugin will automatically detect and validate your license upon simulator startup!
+                  </p>
+                </div>
+              </div>
+
+              <div class="activation-step">
+                <span class="step-badge">Method B</span>
+                <div>
+                  <strong>Paste Key inside Cockpit or Tablet Browser</strong>
+                  <p>
+                    Launch X-Plane 12, load any ToLiss aircraft, open the AlphaFloor EFB Settings tab, select <em>Activate License</em>, and paste the key string above.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="success-actions">
+            <a href="/alphafloorefb/" class="btn btn-primary">Return to AlphaFloor EFB</a>
+            <a href="mailto:contact@cyberpatate.fr" class="btn btn-secondary">Contact Support</a>
+          </div>
+        </div>
+
+        <!-- State 3: Error / No Session -->
+        <div id="state-error" class="checkout-state" style="display: none;">
+          <div class="error-icon-wrap">
+            <svg width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="#f43f5e">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+
+          <span class="section-tag amber">Status Check</span>
+          <h1 class="state-title">Session Could Not Be Verified</h1>
+          <p class="state-subtitle" id="error-message">
+            We could not find an active or completed Stripe checkout session. If you have completed a payment, please allow a moment for Stripe webhooks to settle or contact support.
+          </p>
+
+          <div class="error-actions">
+            <a href="/alphafloorefb/#pricing" class="btn btn-primary">View Pricing</a>
+            <a href="mailto:contact@cyberpatate.fr" class="btn btn-secondary">Contact Support: contact@cyberpatate.fr</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .checkout-page-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .checkout-card {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem;
+    text-align: center;
+  }
+
+  .checkout-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loader-spinner {
+    margin-bottom: 1.5rem;
+    color: var(--hud-cyan);
+  }
+
+  .success-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 230, 118, 0.12);
+    border: 2px solid rgba(0, 230, 118, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 30px rgba(0, 230, 118, 0.2);
+  }
+
+  .error-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(244, 63, 94, 0.12);
+    border: 2px solid rgba(244, 63, 94, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .state-title {
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .state-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-bottom: 2rem;
+  }
+
+  .session-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+  }
+
+  .session-label {
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  .session-id-val {
+    color: var(--hud-cyan);
+  }
+
+  /* License Details Box */
+  .license-details-box {
+    width: 100%;
+    background: rgba(8, 11, 18, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .license-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.25rem;
+  }
+
+  .meta-val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-all;
+  }
+
+  .key-display-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .key-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--hud-cyan);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .key-box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .key-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1rem;
+    color: #00e676;
+    font-size: 0.82rem;
+    outline: none;
+    letter-spacing: 0.03em;
+  }
+
+  .download-box {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .download-hint {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  /* Step by Step */
+  .activation-steps-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .steps-heading {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+  }
+
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .activation-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hud-cyan);
+    background: var(--hud-cyan-dim);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .activation-step p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin-top: 0.35rem;
+  }
+
+  .code-token {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--hud-cyan);
+  }
+
+  .code-path {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--hud-cyan);
+    word-break: break-all;
+  }
+
+  .success-actions,
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .checkout-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .license-meta-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .key-box {
+      flex-direction: column;
+    }
+
+    .key-input {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Client-side session verification & license acquisition script
+  const WORKER_STATUS_ENDPOINT = 'https://cyberpatate-license.cyberpatate.workers.dev/api/v1/alphafloorefb/checkout/status';
+
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('session_id');
+
+  const stateLoading = document.getElementById('state-loading');
+  const stateSuccess = document.getElementById('state-success');
+  const stateError = document.getElementById('state-error');
+  const sessionDisplay = document.getElementById('session-id-display');
+  const licenseKeyInput = document.getElementById('license-key-input') as HTMLInputElement | null;
+  const licenseIdDisplay = document.getElementById('license-id-display');
+  const copyKeyBtn = document.getElementById('copy-key-btn');
+  const copyKeyText = document.getElementById('copy-key-text');
+  const downloadLicBtn = document.getElementById('download-lic-btn');
+  const errorMessage = document.getElementById('error-message');
+
+  let activeLicenseKey = '';
+
+  function showError(msg: string) {
+    if (stateLoading) stateLoading.style.display = 'none';
+    if (stateSuccess) stateSuccess.style.display = 'none';
+    if (stateError) stateError.style.display = 'flex';
+    if (errorMessage) errorMessage.textContent = msg;
+  }
+
+  function showSuccess(licenseKey: string, licenseId: string) {
+    activeLicenseKey = licenseKey;
+    if (stateLoading) stateLoading.style.display = 'none';
+    if (stateError) stateError.style.display = 'none';
+    if (stateSuccess) stateSuccess.style.display = 'flex';
+
+    if (licenseKeyInput) licenseKeyInput.value = licenseKey;
+    if (licenseIdDisplay) licenseIdDisplay.textContent = licenseId || 'Provisioned';
+  }
+
+  // Handle license file download (.lic)
+  downloadLicBtn?.addEventListener('click', () => {
+    if (!activeLicenseKey) return;
+    const blob = new Blob([activeLicenseKey.trim()], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'AlphaFloorEFB.lic';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // Handle copy key
+  copyKeyBtn?.addEventListener('click', () => {
+    if (!activeLicenseKey) return;
+    navigator.clipboard.writeText(activeLicenseKey);
+    if (copyKeyText) {
+      copyKeyText.textContent = 'Copied!';
+      setTimeout(() => {
+        if (copyKeyText) copyKeyText.textContent = 'Copy Key';
+      }, 2000);
+    }
+  });
+
+  async function checkSession() {
+    if (!sessionId) {
+      showError('No checkout session identifier was found in the URL. If you reached this page by mistake, please visit our homepage.');
+      return;
+    }
+
+    if (sessionDisplay) {
+      sessionDisplay.textContent = sessionId;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 20; // Poll for up to ~40 seconds
+
+    async function poll() {
+      attempts++;
+      try {
+        const res = await fetch(`${WORKER_STATUS_ENDPOINT}?session_id=${encodeURIComponent(sessionId)}`);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json();
+
+        if (data.status === 'completed' && data.license_key) {
+          showSuccess(data.license_key, data.license_id);
+          return;
+        }
+
+        if (attempts < maxAttempts) {
+          setTimeout(poll, 2000);
+        } else {
+          showError('Your payment is still being processed by Stripe. Please refresh this page in a moment or check your confirmation email.');
+        }
+      } catch (err: any) {
+        console.warn('Polling error:', err);
+        if (attempts < maxAttempts) {
+          setTimeout(poll, 2500);
+        } else {
+          showError('We encountered a temporary connection issue while querying license status. Please refresh or contact contact@cyberpatate.fr.');
+        }
+      }
+    }
+
+    poll();
+  }
+
+  // Run on page mount
+  checkSession();
+</script>

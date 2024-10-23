@@ -1,0 +1,181 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Checkout Cancelled — AlphaFloor EFB"
+  description="Your Stripe checkout session was cancelled. No charges were made."
+>
+  <div class="checkout-page-wrapper section">
+    <div class="container">
+      <div class="checkout-card glass-panel">
+        <div class="cancel-icon-wrap">
+          <svg width="44" height="44" fill="none" viewBox="0 0 24 24" stroke="#f59e0b">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
+
+        <span class="section-tag amber">Checkout Cancelled</span>
+        <h1 class="state-title">No Charges Were Made</h1>
+        <p class="state-subtitle">
+          You cancelled your Stripe checkout session. Your payment method was not billed, and no transaction took place.
+        </p>
+
+        <div class="cancel-info-box">
+          <h3 class="info-title">Still Want to Try AlphaFloor EFB?</h3>
+          <p class="info-text">
+            Remember that AlphaFloor EFB includes a <strong>7-day free trial</strong> with all features unlocked. You can install the plugin into X-Plane 12 right now and test it in your favorite ToLiss Airbus aircraft before deciding.
+          </p>
+        </div>
+
+        <div class="cancel-actions">
+          <button id="retry-checkout-btn" class="btn btn-pro btn-lg">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span class="btn-label">Retry Checkout (11.99€)</span>
+          </button>
+
+          <a href="/alphafloorefb/#install" class="btn btn-secondary btn-lg">
+            <span>Download & Try Free for 7 Days</span>
+          </a>
+
+          <a href="/alphafloorefb/" class="btn btn-secondary btn-lg">
+            <span>Return to AlphaFloor EFB</span>
+          </a>
+        </div>
+
+        <div class="support-footer">
+          <span>Need help with payment or have a question? Email us at <a href="mailto:contact@cyberpatate.fr">contact@cyberpatate.fr</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .checkout-page-wrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .checkout-card {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cancel-icon-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.12);
+    border: 2px solid rgba(245, 158, 11, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
+  }
+
+  .state-title {
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .state-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin-bottom: 2rem;
+  }
+
+  .cancel-info-box {
+    width: 100%;
+    background: rgba(13, 18, 31, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin-bottom: 2.25rem;
+    text-align: left;
+  }
+
+  .info-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-text {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .info-text strong {
+    color: var(--hud-amber);
+  }
+
+  .cancel-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 440px;
+    margin-bottom: 2rem;
+  }
+
+  .support-footer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .checkout-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const WORKER_CHECKOUT_ENDPOINT = 'https://cyberpatate-license.cyberpatate.workers.dev/api/v1/alphafloorefb/checkout/create-session';
+
+  document.getElementById('retry-checkout-btn')?.addEventListener('click', async (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
+    const labelSpan = btn.querySelector('.btn-label') as HTMLElement;
+    const originalText = labelSpan ? labelSpan.textContent : '';
+
+    try {
+      btn.disabled = true;
+      if (labelSpan) labelSpan.textContent = 'Redirecting to Stripe...';
+
+      const response = await fetch(WORKER_CHECKOUT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        throw new Error('No checkout URL');
+      }
+    } catch (err: any) {
+      console.error('Checkout error:', err);
+      alert('Could not initiate checkout session. Please try again or email contact@cyberpatate.fr.');
+      btn.disabled = false;
+      if (labelSpan && originalText) labelSpan.textContent = originalText;
+    }
+  });
+</script>
