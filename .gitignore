@@ -1,6 +1,23 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-Gemfile.lock
+# Build and dependency artifacts
+dist/
+.astro/
+node_modules/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Editor directories
+.vscode/
+.idea/
+
+# Legacy Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata/

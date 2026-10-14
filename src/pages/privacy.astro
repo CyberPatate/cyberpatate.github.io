@@ -1,0 +1,157 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Privacy Policy — CyberPatate" 
+  description="Privacy policy for CyberPatate software and flight simulation tools (AlphaFloor EFB and XLauncher)."
+>
+  <div class="legal-page-wrapper section">
+    <div class="container">
+      <div class="legal-card glass-panel">
+        <header class="legal-header">
+          <span class="section-tag green">Transparency</span>
+          <h1 class="legal-title">Privacy Policy</h1>
+          <p class="legal-updated">Last Updated: October 14, 2026</p>
+        </header>
+
+        <article class="legal-content">
+          <section>
+            <h2>1. Our Privacy Philosophy</h2>
+            <p>
+              At <strong>CyberPatate</strong>, we believe software running on your computer should respect your machine, your network, and your data. <strong>We do not collect, track, monetize, or sell your flight simulator sessions, personal files, or browsing behavior.</strong>
+            </p>
+          </section>
+
+          <section>
+            <h2>2. Information We Process (and What Stays Local)</h2>
+            <h3>A. Local Simulator Data & Tablet Streaming</h3>
+            <p>
+              When you fly with <strong>AlphaFloor EFB</strong>, all flight telemetry, datarefs, performance calculations, and weight & balance numbers are processed <strong>100% locally on your computer</strong>. The embedded tablet web server serves pages directly across your home Wi-Fi local area network (LAN). No simulator state is ever streamed to cloud servers.
+            </p>
+
+            <h3>B. License Verification & Device Node Locking</h3>
+            <p>
+              To enforce our fair 3-machine activation policy, our software computes a one-way cryptographic hash of local machine hardware identifiers:
+            </p>
+            <ul>
+              <li>This fingerprint contains no personal information, usernames, IP addresses, or file paths.</li>
+              <li>It is used solely to verify active machine activation slots against our secure licensing server.</li>
+              <li>Once activated, license signatures are verified locally and offline without requiring continuous internet pings while you fly.</li>
+            </ul>
+
+            <h3>C. Optional Third-Party Services</h3>
+            <p>
+              If you choose to use integrated pilot utilities:
+            </p>
+            <ul>
+              <li><strong>SimBrief</strong>: Your pilot username is used strictly to query the SimBrief dispatch API to download your flight plan.</li>
+              <li><strong>Navigraph</strong>: OAuth authentication tokens are stored securely on your local device and communicate directly with Navigraph endpoints for chart retrieval.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>3. Payment Processing</h2>
+            <p>
+              All online purchases are processed securely through <strong>Stripe</strong>. CyberPatate does not receive, process, or store credit card numbers, bank details, or CVV codes. Payment transactions are governed by Stripe's industry-certified security protocols and privacy policy.
+            </p>
+          </section>
+
+          <section>
+            <h2>4. Website Hosting & Analytics</h2>
+            <p>
+              This website is delivered via high-availability static Edge CDN infrastructure (GitHub Pages). We do not use third-party tracking pixels, marketing cookies, or invasive analytics. Standard server request metadata is processed solely for network routing, security, and DDoS mitigation.
+            </p>
+          </section>
+
+          <section>
+            <h2>5. Contact Us</h2>
+            <p>
+              If you have any questions or data requests regarding this Privacy Policy, please reach out to us directly:
+            </p>
+            <p>
+              <a href="mailto:contact@cyberpatate.fr">contact@cyberpatate.fr</a>
+            </p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page-wrapper {
+    padding-top: 3rem;
+  }
+
+  .legal-card {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 3.5rem;
+  }
+
+  .legal-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-title {
+    font-size: 2.4rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-content section {
+    margin-bottom: 2.25rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+  }
+
+  .legal-content h3 {
+    font-size: 1.05rem;
+    color: var(--hud-cyan);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-content li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .legal-content strong {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .legal-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

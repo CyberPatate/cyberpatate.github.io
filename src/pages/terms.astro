@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Terms of Sale & EULA — CyberPatate" 
+  description="Software license agreement, multi-machine activation policy, and terms of sale for CyberPatate products (AlphaFloor EFB and XLauncher)."
+>
+  <div class="legal-page-wrapper section">
+    <div class="container">
+      <div class="legal-card glass-panel">
+        <header class="legal-header">
+          <span class="section-tag amber">Legal Agreement</span>
+          <h1 class="legal-title">Terms of Sale & License Agreement</h1>
+          <p class="legal-updated">Last Updated: October 14, 2026</p>
+        </header>
+
+        <article class="legal-content">
+          <section>
+            <h2>1. Agreement Overview</h2>
+            <p>
+              By purchasing, downloading, activating, or using software published by <strong>CyberPatate</strong> ("Software", including <strong>AlphaFloor EFB</strong> and <strong>XLauncher Pro</strong>), you agree to be bound by the terms and conditions set forth in this End User License Agreement (EULA) and Terms of Sale.
+            </p>
+          </section>
+
+          <section>
+            <h2>2. License Grant & Multi-Machine Policy</h2>
+            <p>
+              Upon payment of the applicable one-time license fee (e.g., 11.99€ for AlphaFloor EFB or 5€ for XLauncher Pro), you are granted a non-exclusive, non-transferable, revocable license to install and run the Software subject to the following terms:
+            </p>
+            <ul>
+              <li><strong>Personal Pilot License</strong>: A single personal license permits concurrent activation on up to <strong>three (3) personal computers</strong> (desktop PC, laptop, or Mac), provided all machines are owned and operated by the same licensee.</li>
+              <li><strong>External Tablets</strong>: External web tablets (iPad, Android, phones) connected via local Wi-Fi to your host simulator do not consume separate machine activations.</li>
+              <li><strong>License Portability & Export</strong>: You may export and use your license file (<code class="code-token">AlphaFloorEFB.lic</code>) or copy your license key string to activate your other machines.</li>
+              <li><strong>Commercial or Multi-User Use</strong>: Flight schools, commercial training centers, or public simulator cockpits require a separate commercial site license. Please contact <a href="mailto:contact@cyberpatate.fr">contact@cyberpatate.fr</a> for commercial licensing inquiries.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>3. Lifetime Updates & Version Scope</h2>
+            <p>
+              Your one-time purchase entitles you to all minor and major updates within the current product generation (version 1.x for AlphaFloor EFB, version 2.x for XLauncher Pro). There are no recurring monthly or annual subscription fees.
+            </p>
+          </section>
+
+          <section>
+            <h2>4. Restrictions</h2>
+            <p>You agree NOT to:</p>
+            <ul>
+              <li>Decompile, disassemble, or reverse engineer the compiled binary components of the Software.</li>
+              <li>Publicly publish, redistribute, lease, or resell your private license key or license file.</li>
+              <li>Circumvent, tamper with, or bypass the digital cryptographic verification mechanisms embedded within the software.</li>
+              <li>Use the Software in connection with actual in-flight aircraft navigation or real-world aviation operations.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>5. 14-Day Refund Policy</h2>
+            <p>
+              We stand behind the quality of our simulation software. If you experience technical defects, system crashes, or hardware incompatibilities that cannot be resolved within <strong>14 calendar days</strong> of purchase, please email us at <a href="mailto:contact@cyberpatate.fr">contact@cyberpatate.fr</a> for a full refund.
+            </p>
+          </section>
+
+          <section>
+            <h2>6. Simulator Disclaimer & Trademarks</h2>
+            <p>
+              <em>X-Plane</em> is a registered trademark of Laminar Research. <em>Airbus</em>, <em>A319</em>, <em>A320</em>, <em>A321</em>, <em>A330</em>, and <em>A340</em> are trademarks of Airbus. <em>ToLiss</em> is a trademark of ToLiss Inc. <em>Navigraph</em> is a registered trademark of Navigraph / Arts & Technology Group HB. <em>VATSIM</em> is a trademark of VATSIM Inc. <em>IVAO</em> is a trademark of the International Virtual Aviation Organisation VZW. CyberPatate is an independent development studio. The Software is in no way affiliated with, sponsored by, or endorsed by Laminar Research, Airbus, ToLiss, Navigraph, VATSIM, or IVAO.
+            </p>
+          </section>
+
+          <section>
+            <h2>7. Disclaimer of Warranty & Limitation of Liability</h2>
+            <p>
+              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
+          </section>
+        </article>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page-wrapper {
+    padding-top: 3rem;
+  }
+
+  .legal-card {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 3.5rem;
+  }
+
+  .legal-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .legal-title {
+    font-size: 2.4rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-updated {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .legal-content section {
+    margin-bottom: 2.25rem;
+  }
+
+  .legal-content h2 {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+  }
+
+  .legal-content p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .legal-content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-content li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .legal-content strong {
+    color: var(--text-primary);
+  }
+
+  .code-token {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--hud-cyan);
+  }
+
+  @media (max-width: 768px) {
+    .legal-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>

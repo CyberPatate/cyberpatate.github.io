@@ -1,0 +1,248 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+---
+
+<header class="navbar-wrapper">
+  <div class="container">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/" class="brand" aria-label="CyberPatate Home">
+        <img src="/images/cyberpatate-logo.png" alt="CyberPatate Studio" class="brand-logo" width="36" height="36" />
+        <div class="brand-text">
+          <span class="brand-name">CyberPatate</span>
+          <span class="brand-badge">Studio</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
+        <a href="/alphafloorefb/" class={`nav-link ${currentPath.startsWith('/alphafloorefb') ? 'active' : ''}`}>
+          <span>AlphaFloor EFB</span>
+          <span class="efb-tag">11.99€</span>
+        </a>
+        <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="nav-link">
+          <span>XLauncher</span>
+          <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <a href="/#about" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <a 
+          href="https://github.com/CyberPatate" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="github-link"
+          aria-label="CyberPatate on GitHub"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </a>
+        <a href="/alphafloorefb/" class="btn btn-primary btn-sm">
+          <span>AlphaFloor EFB</span>
+        </a>
+      </div>
+
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" id="mobile-toggle">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/" class="mobile-link">Home</a>
+    <a href="/alphafloorefb/" class="mobile-link">AlphaFloor EFB (11.99€)</a>
+    <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="mobile-link">XLauncher Pro</a>
+    <a href="/#about" class="mobile-link">About the Studio</a>
+    <div class="mobile-buttons">
+      <a href="/alphafloorefb/" class="btn btn-primary">Discover AlphaFloor EFB</a>
+      <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit XLauncher.app</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(8, 11, 18, 0.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  }
+
+  .brand-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+  }
+
+  .brand-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: var(--hud-cyan);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--text-primary);
+  }
+
+  .nav-link.active {
+    font-weight: 600;
+  }
+
+  .efb-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: var(--hud-cyan);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  }
+
+  .external-icon {
+    opacity: 0.6;
+    margin-left: 2px;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .github-link {
+    color: var(--text-secondary);
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    transition: color var(--transition-fast);
+  }
+
+  .github-link:hover {
+    color: var(--text-primary);
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .mobile-link {
+    padding: 0.85rem 0;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 860px) {
+    .nav-links, .nav-actions {
+      display: none;
+    }
+    .mobile-toggle {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  toggleBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('active');
+  });
+
+  const links = mobileMenu?.querySelectorAll('a');
+  links?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('active');
+    });
+  });
+</script>

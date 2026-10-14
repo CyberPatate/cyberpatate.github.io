@@ -1,0 +1,1399 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="AlphaFloor EFB — Modern Electronic Flight Bag for Airbus in X-Plane 12"
+  description="Modern Electronic Flight Bag for Airbus aircraft in X-Plane 12. Integrated into the 3D cockpit tablet and accessible from any iPad, tablet, or browser over local Wi-Fi. Optimized for the ToLiss Airbus fleet."
+  image="/images/alphafloorefb-icon.svg"
+>
+  <!-- Hero Section -->
+  <section class="efb-hero section">
+    <div class="container">
+      <div class="efb-hero-badge-wrap">
+        <span class="section-tag">
+          <span class="pulse-indicator"></span>
+          <span>Airbus Electronic Flight Bag · X-Plane 12</span>
+        </span>
+      </div>
+
+      <h1 class="efb-hero-title">
+        The Modern Cockpit EFB for the <span class="gradient-text">ToLiss Airbus Fleet</span>
+      </h1>
+
+      <p class="efb-hero-subtitle">
+        Integrated seamlessly into your 3D cockpit tablet and accessible from your iPad, Android tablet, phone, or laptop over local Wi-Fi. Features deep aircraft integration, intuitive touch controls, and zero impact on simulator framerates.
+      </p>
+
+      <div class="efb-hero-actions">
+        <button id="buy-hero-btn" class="btn btn-pro btn-lg">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+          <span class="btn-label">Buy Lifetime License — 11.99€</span>
+        </button>
+
+        <a href="#features" class="btn btn-secondary btn-lg">
+          <span>Explore Features</span>
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Quick Aircraft Fleet Compatibility Pills -->
+      <div class="fleet-strip">
+        <span class="fleet-label">OPTIMIZED FLEET:</span>
+        <div class="fleet-tags">
+          <span class="fleet-badge">ToLiss A319</span>
+          <span class="fleet-badge">ToLiss A320neo</span>
+          <span class="fleet-badge">ToLiss A321 / XLR</span>
+          <span class="fleet-badge">ToLiss A330-900</span>
+          <span class="fleet-badge">ToLiss A340-600</span>
+        </div>
+      </div>
+
+      <!-- Interactive Avionics Tablet Preview Mockup -->
+      <div class="efb-tablet-frame glass-panel">
+        <div class="tablet-top-bar">
+          <div class="tablet-status-left">
+            <span class="status-pill green">ONLINE</span>
+            <span class="aircraft-type-text">A321-271NX · F-HBNX</span>
+          </div>
+          <div class="tablet-time mono">UTC 12:45:00 · FL340</div>
+          <div class="tablet-status-right">
+            <span class="status-pill cyan">Wi-Fi LAN: 192.168.1.42:8080</span>
+            <span class="battery-text">100% ⚡</span>
+          </div>
+        </div>
+
+        <div class="tablet-main-grid">
+          <!-- Left App Navigation -->
+          <div class="tablet-sidebar">
+            <div class="tablet-app-item active">
+              <span class="app-icon">📊</span>
+              <span class="app-name">Performance</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">⚖️</span>
+              <span class="app-name">Weight & Balance</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">📋</span>
+              <span class="app-name">SimBrief OFP</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">🗺️</span>
+              <span class="app-name">Moving Map</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">📈</span>
+              <span class="app-name">Navigraph Charts</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">🚪</span>
+              <span class="app-name">Doors & Ground</span>
+            </div>
+            <div class="tablet-app-item">
+              <span class="app-icon">✅</span>
+              <span class="app-name">Checklists</span>
+            </div>
+          </div>
+
+          <!-- Active App Content (Takeoff Perf Mockup) -->
+          <div class="tablet-content-view">
+            <div class="app-header-row">
+              <div>
+                <h4 class="app-title-text">TAKEOFF PERFORMANCE CALCULATION</h4>
+                <p class="app-subtitle-text">LFPG (PARIS CHARLES DE GAULLE) · RWY 26L · DRY · TOW 82.4T</p>
+              </div>
+              <span class="telemetry-badge green">DATAREFS SYNCED</span>
+            </div>
+
+            <div class="perf-results-grid">
+              <div class="perf-box flex-box">
+                <span class="perf-box-label">FLEX TEMP</span>
+                <span class="perf-box-val amber mono">58°C</span>
+                <span class="perf-box-sub">THRUST REDUCTION</span>
+              </div>
+              <div class="perf-box speed-box">
+                <span class="perf-box-label">V1</span>
+                <span class="perf-box-val cyan mono">142</span>
+                <span class="perf-box-sub">DECISION</span>
+              </div>
+              <div class="perf-box speed-box">
+                <span class="perf-box-label">VR</span>
+                <span class="perf-box-val cyan mono">145</span>
+                <span class="perf-box-sub">ROTATION</span>
+              </div>
+              <div class="perf-box speed-box">
+                <span class="perf-box-label">V2</span>
+                <span class="perf-box-val cyan mono">148</span>
+                <span class="perf-box-sub">SAFETY SPEED</span>
+              </div>
+            </div>
+
+            <div class="perf-config-row">
+              <div class="config-pill"><span class="cfg-lbl">FLAPS:</span> <strong>CONF 1+F</strong></div>
+              <div class="config-pill"><span class="cfg-lbl">THS:</span> <strong>UP 0.8</strong></div>
+              <div class="config-pill"><span class="cfg-lbl">PACKS:</span> <strong>ON</strong></div>
+              <div class="config-pill"><span class="cfg-lbl">ANTI-ICE:</span> <strong>OFF</strong></div>
+              <div class="config-pill"><span class="cfg-lbl">REQ RUNWAY:</span> <strong>2,140 m</strong> (AVAIL: 4,215 m)</div>
+            </div>
+
+            <div class="mcdu-sync-banner">
+              <span class="mcdu-icon">⚡</span>
+              <span><strong>MCDU Scratchpad Sync</strong>: One-click transfers flex temp, V-speeds, and trim settings directly into the ToLiss FMGS!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Architecture Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dual Display Technology</span>
+        <h2 class="section-title">One Plugin. Two Ways to Fly.</h2>
+        <p class="section-subtitle">
+          Whether you want a native 3D cockpit tablet display or an interactive touch experience on your iPad at your desk, AlphaFloor EFB delivers both simultaneously.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <!-- 3D Cockpit Display -->
+        <div class="feature-card glass-panel">
+          <div class="feature-icon cyan">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="telemetry-badge cyan">IN-COCKPIT 3D DISPLAY</span>
+          <h3 class="feature-title">Native 3D Cockpit Integration</h3>
+          <p class="feature-desc">
+            AlphaFloor EFB powers the pilot tablet screens right inside the 3D virtual cockpit. It displays crisp, high-resolution graphics and responsive controls without modifying any aircraft 3D model files.
+          </p>
+          <ul class="feature-bullet-list">
+            <li>Ready to fly out of the box: powers on automatically when loading your airliner</li>
+            <li>Intuitive in-cockpit mouse interaction with responsive buttons and sliders</li>
+            <li>Crisp, high-definition text rendering optimized for VR and desktop monitors</li>
+          </ul>
+        </div>
+
+        <!-- External Tablet Web App -->
+        <div class="feature-card glass-panel">
+          <div class="feature-icon amber">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="telemetry-badge amber">EXTERNAL TABLET & BROWSER</span>
+          <h3 class="feature-title">Fly with Any Tablet Over Wi-Fi</h3>
+          <p class="feature-desc">
+            Connect your iPad, Android tablet, phone, or second PC screen simply by opening your web browser. No App Store downloads, cables, or third-party client apps to install.
+          </p>
+          <ul class="feature-bullet-list">
+            <li>Instant real-time synchronization between the cockpit and your tablet</li>
+            <li>Responsive touch controls with pinch-to-zoom on moving maps and airport charts</li>
+            <li>100% private and local: runs entirely across your home Wi-Fi network</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive EFB Apps Breakdown -->
+  <section class="section apps-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag green">Modular Avionics Suite</span>
+        <h2 class="section-title">Everything an Airbus Captain Needs</h2>
+        <p class="section-subtitle">
+          Engineered to match real airline fly-by-wire Electronic Flight Bags with deep dataref interaction.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <!-- App 1: Takeoff & Landing Perf -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">⚡</div>
+          <h3 class="app-card-title">Takeoff & Landing Performance</h3>
+          <p class="app-card-desc">
+            Accurate Airbus performance calculation engines. Computes optimal flexible temperature, flap configuration (CONF 1+F / CONF 2 / CONF 3), V1, VR, V2 speeds, and required stopping distance based on runway condition, wind, slope, and temperature.
+          </p>
+          <span class="app-card-tag">FMGS MCDU Scratchpad Sync</span>
+        </div>
+
+        <!-- App 2: Weight & Balance -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">⚖️</div>
+          <h3 class="app-card-title">Weight, Balance & CG Envelope</h3>
+          <p class="app-card-desc">
+            Interactive visual cabin layout and cargo hold visualizer. Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram showing Zero Fuel Weight CG and Takeoff Weight CG limits.
+          </p>
+          <span class="app-card-tag">Direct ToLiss Payload Injection</span>
+        </div>
+
+        <!-- App 3: SimBrief OFP -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">📋</div>
+          <h3 class="app-card-title">SimBrief OFP Dispatch Viewer</h3>
+          <p class="app-card-desc">
+            Fetch your latest SimBrief Operational Flight Plan with a single click. Browse routes, waypoint wind components, alternate airports, contingency fuels, step climbs, and passenger loadsheets in a clean, legible format.
+          </p>
+          <span class="app-card-tag">One-Click Dispatch Import</span>
+        </div>
+
+        <!-- App 4: Moving Map -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">🗺️</div>
+          <h3 class="app-card-title">Interactive Moving Map</h3>
+          <p class="app-card-desc">
+            High-resolution moving map with live aircraft position, heading vector, flight plan route line, airport runway layouts, and taxiway diagrams. Smooth 60 FPS panning with touch gestures.
+          </p>
+          <span class="app-card-tag">Taxi & Flight Path Tracking</span>
+        </div>
+
+        <!-- App 5: Charts & PDF Viewer -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">📈</div>
+          <h3 class="app-card-title">Navigraph & PDF Documents</h3>
+          <p class="app-card-desc">
+            Seamless Navigraph Charts integration with automatic departure, arrival, and approach procedure matching. Built-in high-performance PDF engine to read company manuals, SOPs, and airport charts.
+          </p>
+          <span class="app-card-tag">Navigraph & Custom PDF Support</span>
+        </div>
+
+        <!-- App 6: Aircraft Controls & Checklists -->
+        <div class="app-card glass-panel">
+          <div class="app-card-icon">🚪</div>
+          <h3 class="app-card-title">Ground Services & SOP Checklists</h3>
+          <p class="app-card-desc">
+            Control passenger doors, cargo doors, ground power units (GPU), high-pressure air, wheel chocks, and fueling directly from the tablet. Includes interactive normal and abnormal Airbus checklists.
+          </p>
+          <span class="app-card-tag">Ground Services & Airbus SOPs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag amber">Comparison Matrix</span>
+        <h2 class="section-title">Standard Sim Setup vs AlphaFloor EFB</h2>
+        <p class="section-subtitle">
+          See why AlphaFloor EFB is the ultimate upgrade for your X-Plane 12 airliner cockpit.
+        </p>
+      </div>
+
+      <div class="comparison-wrapper glass-panel">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="feature-col">Feature</th>
+              <th class="standard-col">Standard Setup</th>
+              <th class="alphafloor-col">AlphaFloor EFB</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3D Virtual Cockpit Tablet Display</td>
+              <td><span class="check-partial">~</span> Basic text / limited</td>
+              <td><span class="check-yes highlight">✓</span> Full glassmorphic Airbus interface</td>
+            </tr>
+            <tr>
+              <td>External Tablet Support (iPad / Android / Phone)</td>
+              <td><span class="check-no">✕</span> Separate window only / 3rd-party tool</td>
+              <td><span class="check-yes highlight">✓</span> Instant browser access over home Wi-Fi</td>
+            </tr>
+            <tr>
+              <td>Deep ToLiss Fleet Integration</td>
+              <td><span class="check-no">✕</span> Manual typing in FMGS</td>
+              <td><span class="check-yes highlight">✓</span> 1-Click scratchpad sync, fuel, doors, payload</td>
+            </tr>
+            <tr>
+              <td>Takeoff & Landing Performance Calculators</td>
+              <td><span class="check-no">✕</span> External calculators / tables</td>
+              <td><span class="check-yes highlight">✓</span> Built-in flex temp, V-speeds & stopping limits</td>
+            </tr>
+            <tr>
+              <td>Visual Weight & Balance with Dynamic CG</td>
+              <td><span class="check-no">✕</span> Static text menus</td>
+              <td><span class="check-yes highlight">✓</span> Interactive cabin seating & dynamic CG envelope</td>
+            </tr>
+            <tr>
+              <td>SimBrief Flight Plan Integration</td>
+              <td><span class="check-partial">~</span> Raw text / manual entry</td>
+              <td><span class="check-yes highlight">✓</span> Rich interactive OFP with route map & stats</td>
+            </tr>
+            <tr>
+              <td>Interactive Airbus SOP Checklists</td>
+              <td><span class="check-partial">~</span> Paper or static PDF</td>
+              <td><span class="check-yes highlight">✓</span> Interactive checkable items with smart state</td>
+            </tr>
+            <tr>
+              <td>Navigraph & Airport Charts</td>
+              <td><span class="check-partial">~</span> Alt-tabbing to desktop</td>
+              <td><span class="check-yes highlight">✓</span> In-cockpit & on tablet with pinch-to-zoom</td>
+            </tr>
+            <tr>
+              <td>Framerate Impact</td>
+              <td><span class="check-partial">~</span> Variable</td>
+              <td><span class="check-yes highlight">✓</span> Zero micro-stutters, fluid 60 FPS display</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag green">Simple, Transparent Pricing</span>
+        <h2 class="section-title">Try Free. Own for 11.99€.</h2>
+        <p class="section-subtitle">
+          No recurring subscription fees. Full access during your 7-day free trial. A single one-time payment for lifetime access on up to 3 machines.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- 7-Day Free Trial Card -->
+        <div class="pricing-card glass-panel">
+          <div class="plan-header">
+            <h3 class="plan-name">7-Day Free Trial</h3>
+            <p class="plan-tagline">Test every single feature in your simulator risk-free</p>
+            <div class="plan-price-row">
+              <span class="price-val">Free</span>
+              <span class="price-cycle">7 Days Full Access</span>
+            </div>
+          </div>
+
+          <ul class="plan-perks">
+            <li>
+              <span class="perk-icon">✓</span>
+              <span>All EFB modular apps unlocked</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span>Simultaneous 3D cockpit & external tablet access</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span>Full ToLiss fleet support (A319, A320, A321, A330, A340)</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span>SimBrief & Navigraph charts integration</span>
+            </li>
+            <li>
+              <span class="perk-icon">✓</span>
+              <span>Instant in-app trial start (no credit card required)</span>
+            </li>
+          </ul>
+
+          <div class="plan-cta-wrapper">
+            <a href="#install" class="btn btn-secondary btn-block">
+              <span>Download Plugin & Start Trial</span>
+            </a>
+            <span class="cta-note">Start your trial directly inside the plugin on your computer</span>
+          </div>
+        </div>
+
+        <!-- Lifetime Pro License Card -->
+        <div class="pricing-card glass-panel pro-card">
+          <div class="popular-ribbon">LIFETIME LICENSE</div>
+
+          <div class="plan-header">
+            <div class="plan-badge-row">
+              <h3 class="plan-name pro">Lifetime License</h3>
+              <span class="badge-lifetime">One-time purchase</span>
+            </div>
+            <p class="plan-tagline">Full license for your home flight simulator setup</p>
+            <div class="plan-price-row">
+              <span class="price-val pro">11.99€</span>
+              <span class="price-cycle">One-Time · No Subscriptions</span>
+            </div>
+          </div>
+
+          <ul class="plan-perks">
+            <li>
+              <span class="perk-icon pro">★</span>
+              <strong>Everything in the trial, plus:</strong>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>Up to 3 machines</strong> per license (Mac, Windows, Linux)</span>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>Instant automated activation</strong> and license key delivery</span>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>Downloadable license file (<code class="code-token">AlphaFloorEFB.lic</code>)</strong> for easy drag-and-drop activation</span>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>All updates included</strong> within version 1.x</span>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>Reliable offline validation</strong> — fly anywhere without internet required</span>
+            </li>
+            <li>
+              <span class="perk-icon pro">✓</span>
+              <span><strong>14-day refund policy</strong> for technical defects</span>
+            </li>
+          </ul>
+
+          <div class="plan-cta-wrapper">
+            <button id="buy-pricing-btn" class="btn btn-pro btn-block btn-lg">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              <span class="btn-label">Buy Lifetime License — 11.99€</span>
+            </button>
+            <span class="cta-note">Secure payment via Stripe · Instant key delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- License Terms & Multi-Device Policy Section -->
+  <section class="section license-terms-section" id="license-terms">
+    <div class="container">
+      <div class="license-terms-card glass-panel">
+        <header class="terms-card-header">
+          <span class="section-tag amber">Terms of Sale & Licensing</span>
+          <h2 class="terms-card-title">AlphaFloor EFB License Terms</h2>
+          <p class="terms-card-subtitle">Transparent rules designed to respect your hardware and privacy.</p>
+        </header>
+
+        <div class="terms-grid">
+          <div class="terms-item">
+            <h4 class="terms-heading">1. Multi-Machine Activation (Up to 3 Devices)</h4>
+            <p>
+              Your 11.99€ purchase entitles you to activate the software concurrently on up to <strong>three (3) personal computers</strong> (desktop PC, laptop, or Mac) owned and operated by the same pilot. External tablets connected over Wi-Fi do not consume machine activations.
+            </p>
+          </div>
+
+          <div class="terms-item">
+            <h4 class="terms-heading">2. Exportable License Key File (<code class="code-token">AlphaFloorEFB.lic</code>)</h4>
+            <p>
+              Upon purchase, you immediately receive a license key string and can download your standalone <code class="code-token">AlphaFloorEFB.lic</code> file. Simply place this file into the plugin directory on your other computers for effortless automatic activation.
+            </p>
+          </div>
+
+          <div class="terms-item">
+            <h4 class="terms-heading">3. Offline License Verification</h4>
+            <p>
+              Once activated, AlphaFloor EFB validates your license completely offline on your computer. You never need an ongoing internet connection while you are in flight.
+            </p>
+          </div>
+
+          <div class="terms-item">
+            <h4 class="terms-heading">4. Updates & 14-Day Refund Guarantee</h4>
+            <p>
+              Your purchase includes all minor and major updates within the 1.x release cycle. If you encounter technical defects or hardware incompatibilities that cannot be resolved within 14 calendar days, contact support for a full refund.
+            </p>
+          </div>
+        </div>
+
+        <div class="terms-footer-link">
+          <a href="/terms" class="btn btn-secondary btn-sm">Read Complete Studio EULA & Terms of Sale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Guide Section -->
+  <section class="section install-section" id="install">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag cyan">Quick Start</span>
+        <h2 class="section-title">How to Install AlphaFloor EFB</h2>
+        <p class="section-subtitle">
+          Getting up and running takes less than two minutes.
+        </p>
+      </div>
+
+      <div class="grid-3 install-steps">
+        <div class="step-card glass-panel">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Place in Plugins Folder</h3>
+          <p class="step-desc">
+            Download and extract the <code class="code-token">AlphaFloorEFB</code> folder into your X-Plane 12 directory:
+            <code class="code-block-inline">X-Plane 12/Resources/plugins/AlphaFloorEFB/</code>
+          </p>
+        </div>
+
+        <div class="step-card glass-panel">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Load Any ToLiss Aircraft</h3>
+          <p class="step-desc">
+            Launch X-Plane 12 and load the A319, A320, A321, A330-900, or A340-600. The tablet in the 3D cockpit immediately powers on with AlphaFloor EFB.
+          </p>
+        </div>
+
+        <div class="step-card glass-panel">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Connect Your Tablet</h3>
+          <p class="step-desc">
+            Open the Settings tab on the EFB to see your local LAN URL (e.g. <code class="code-token">http://192.168.1.42:8080</code>). Type it into Safari on your iPad to fly with external touch controls!
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-title">Got Questions? We've Got Answers.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item glass-panel">
+          <h3 class="faq-question">How does AlphaFloor EFB appear in the 3D cockpit?</h3>
+          <p class="faq-answer">
+            AlphaFloor EFB powers the 3D pilot tablet screens inside the cockpit automatically. You don't need to configure aircraft geometry or install separate display drivers—it is ready to fly as soon as you load any supported aircraft.
+          </p>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <h3 class="faq-question">Which aircraft are currently supported?</h3>
+          <p class="faq-answer">
+            AlphaFloor EFB is deeply integrated and optimized for the entire <strong>ToLiss Airbus fleet</strong> (A319, A320neo, A321, A321neo/XLR, A330-900, and A340-600) with dedicated dataref synchronizations for MCDU scratchpads, weight and balance, dynamic CG envelope, doors, fuel, and ground equipment.
+          </p>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <h3 class="faq-question">Do I need an iPad or external tablet to use it?</h3>
+          <p class="faq-answer">
+            No! You can use AlphaFloor EFB entirely inside the X-Plane 12 3D virtual cockpit using your mouse. However, if you have an iPad, Android tablet, phone, or second PC monitor on the same Wi-Fi network, you can access the web EFB simultaneously with fluid touch gestures.
+          </p>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <h3 class="faq-question">How does the 7-day free trial work?</h3>
+          <p class="faq-answer">
+            When you first load the plugin in X-Plane 12, click "Start Free Trial" in the license screen. You instantly receive 7 days of full, unrestricted access to all modular apps, performance calculators, and tablet streaming. No credit card is required.
+          </p>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <h3 class="faq-question">How do I activate my license after purchasing?</h3>
+          <p class="faq-answer">
+            After completing your purchase via Stripe, you will be redirected to our confirmation page displaying your license key and a button to download <code class="code-token">AlphaFloorEFB.lic</code>. You can either copy-paste the key into the EFB license window or simply save <code class="code-token">AlphaFloorEFB.lic</code> into <code class="code-token">X-Plane 12/Resources/plugins/AlphaFloorEFB/</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* EFB Hero Section */
+  .efb-hero {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+
+  .efb-hero-badge-wrap {
+    margin-bottom: 1.25rem;
+  }
+
+  .pulse-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--hud-cyan);
+    box-shadow: 0 0 10px var(--hud-cyan);
+  }
+
+  .efb-hero-title {
+    max-width: 960px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .efb-hero-subtitle {
+    max-width: 820px;
+    margin: 0 auto 2.5rem auto;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .efb-hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.75rem;
+  }
+
+  /* Fleet Compatibility Strip */
+  .fleet-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .fleet-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .fleet-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fleet-badge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+  }
+
+  /* Tablet Interactive Mockup */
+  .efb-tablet-frame {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(56, 189, 248, 0.15);
+  }
+
+  .tablet-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .tablet-status-left,
+  .tablet-status-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .status-pill.green {
+    background: var(--hud-green-dim);
+    color: var(--hud-green);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .status-pill.cyan {
+    background: var(--hud-cyan-dim);
+    color: var(--hud-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .tablet-main-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .tablet-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: rgba(8, 11, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 0.75rem;
+  }
+
+  .tablet-app-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: default;
+    transition: all var(--transition-fast);
+  }
+
+  .tablet-app-item.active {
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--hud-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .tablet-content-view {
+    background: rgba(13, 18, 31, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .app-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .app-title-text {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 0.04em;
+  }
+
+  .app-subtitle-text {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .perf-results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .perf-box {
+    background: rgba(8, 11, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .perf-box-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .perf-box-val {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0.25rem 0;
+  }
+
+  .perf-box-val.amber {
+    color: var(--hud-amber);
+  }
+
+  .perf-box-val.cyan {
+    color: var(--hud-cyan);
+  }
+
+  .perf-box-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .perf-config-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .config-pill {
+    color: var(--text-secondary);
+  }
+
+  .config-pill strong {
+    color: var(--text-primary);
+  }
+
+  .cfg-lbl {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    margin-right: 0.25rem;
+  }
+
+  .mcdu-sync-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+  }
+
+  .mcdu-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Feature Cards */
+  .feature-card {
+    padding: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-icon.cyan {
+    background: var(--hud-cyan-dim);
+    color: var(--hud-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+  }
+
+  .feature-icon.amber {
+    background: var(--hud-amber-dim);
+    color: var(--hud-amber);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .feature-title {
+    font-size: 1.6rem;
+  }
+
+  .feature-desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .feature-bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .feature-bullet-list li {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.4rem;
+    line-height: 1.5;
+  }
+
+  .feature-bullet-list li::before {
+    content: "•";
+    color: var(--hud-cyan);
+    font-size: 1.3rem;
+    position: absolute;
+    left: 0;
+    top: -3px;
+  }
+
+  /* App Cards */
+  .app-card {
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .app-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .app-card-title {
+    font-size: 1.25rem;
+  }
+
+  .app-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    flex-grow: 1;
+  }
+
+  .app-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--hud-cyan);
+    background: var(--hud-cyan-dim);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    width: fit-content;
+    margin-top: 0.5rem;
+  }
+
+  /* Comparison Table */
+  .comparison-wrapper {
+    overflow-x: auto;
+    padding: 2rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .comparison-table th {
+    padding: 1.25rem 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .comparison-table td {
+    padding: 1.1rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+  }
+
+  .feature-col {
+    width: 44%;
+  }
+
+  .standard-col {
+    width: 28%;
+    color: var(--text-muted);
+  }
+
+  .alphafloor-col {
+    width: 28%;
+    color: var(--hud-cyan);
+    font-weight: 600;
+  }
+
+  .check-yes {
+    color: var(--hud-green);
+    font-weight: 700;
+  }
+
+  .check-yes.highlight {
+    color: var(--hud-cyan);
+  }
+
+  .check-no {
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+
+  .check-partial {
+    color: var(--hud-amber);
+    font-weight: 700;
+  }
+
+  /* Pricing Cards */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 2rem;
+    align-items: stretch;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .pricing-card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .pricing-card.pro-card {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: linear-gradient(180deg, rgba(24, 32, 54, 0.95) 0%, rgba(13, 18, 31, 0.85) 100%);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.12);
+  }
+
+  .popular-ribbon {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0f172a;
+    background: var(--hud-amber);
+    padding: 0.25rem 0.8rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  }
+
+  .plan-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .plan-badge-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .plan-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .plan-name.pro {
+    color: var(--hud-amber);
+  }
+
+  .badge-lifetime {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--hud-amber);
+    background: var(--hud-amber-dim);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .plan-tagline {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .price-val {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffffff;
+  }
+
+  .price-val.pro {
+    color: var(--hud-amber);
+  }
+
+  .price-cycle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .plan-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .plan-perks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .plan-perks li strong {
+    color: var(--text-primary);
+  }
+
+  .perk-icon {
+    color: var(--hud-cyan);
+    font-weight: 700;
+  }
+
+  .perk-icon.pro {
+    color: var(--hud-amber);
+  }
+
+  .plan-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cta-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* License Terms Section */
+  .license-terms-card {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 3.5rem;
+  }
+
+  .terms-card-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .terms-card-title {
+    font-size: 2rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .terms-card-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .terms-item {
+    background: rgba(8, 11, 18, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+  }
+
+  .terms-heading {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .terms-item p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .terms-item strong {
+    color: var(--text-primary);
+  }
+
+  .terms-footer-link {
+    text-align: center;
+  }
+
+  /* Install Steps */
+  .install-steps {
+    align-items: stretch;
+  }
+
+  .step-card {
+    padding: 2.25rem;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(56, 189, 248, 0.25);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .code-token {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--hud-cyan);
+  }
+
+  .code-block-inline {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--hud-cyan);
+    word-break: break-all;
+  }
+
+  /* FAQ List */
+  .faq-list {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    padding: 2rem;
+  }
+
+  .faq-question {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 860px) {
+    .tablet-main-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tablet-sidebar {
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 0.5rem;
+    }
+
+    .tablet-app-item {
+      white-space: nowrap;
+    }
+
+    .perf-results-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .terms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .license-terms-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Client-side checkout initiation logic
+  const WORKER_CHECKOUT_ENDPOINT = 'https://cyberpatate-license.cyberpatate.workers.dev/api/v1/alphafloorefb/checkout/create-session';
+
+  async function handleCheckout(buttonElement: HTMLButtonElement | null) {
+    if (!buttonElement) return;
+    const labelSpan = buttonElement.querySelector('.btn-label') as HTMLElement;
+    const originalText = labelSpan ? labelSpan.textContent : '';
+
+    try {
+      buttonElement.disabled = true;
+      if (labelSpan) labelSpan.textContent = 'Opening Secure Stripe Checkout...';
+
+      const response = await fetch(WORKER_CHECKOUT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({}),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        throw new Error('No checkout URL returned by licensing worker');
+      }
+    } catch (err: any) {
+      console.error('Checkout error:', err);
+      alert('Failed to connect to checkout service. Please try again or email contact@cyberpatate.fr.');
+      if (labelSpan && originalText) labelSpan.textContent = originalText;
+      buttonElement.disabled = false;
+    }
+  }
+
+  document.getElementById('buy-hero-btn')?.addEventListener('click', (e) => {
+    handleCheckout(e.currentTarget as HTMLButtonElement);
+  });
+
+  document.getElementById('buy-pricing-btn')?.addEventListener('click', (e) => {
+    handleCheckout(e.currentTarget as HTMLButtonElement);
+  });
+</script>
