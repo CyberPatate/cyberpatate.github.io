@@ -1807,13 +1807,19 @@ const release = await getLatestRelease();
   // Progressive enhancement: query GitHub Releases API in background for live updates
   async function checkLiveRelease() {
     try {
-      const res = await fetch('https://api.github.com/repos/CyberPatate/cyberpatate.github.io/releases/latest');
+      const res = await fetch('https://api.github.com/repos/CyberPatate/cyberpatate.github.io/releases?per_page=20');
       if (!res.ok) return;
-      const data = await res.json();
+      const releases = await res.json();
+      if (!Array.isArray(releases) || releases.length === 0) return;
+
+      const data = releases.find((r: any) => 
+        typeof r.tag_name === 'string' && r.tag_name.startsWith('alphafloorefb-')
+      ) || releases[0];
       if (!data || !data.tag_name) return;
 
+      const rawTag = data.tag_name;
+      const ver = rawTag.startsWith('alphafloorefb-') ? rawTag.slice('alphafloorefb-'.length) : rawTag;
       const zipAsset = data.assets && data.assets.find((a: any) => typeof a.name === 'string' && a.name.endsWith('.zip'));
-      const ver = data.tag_name;
       const verText = document.getElementById('release-version-text');
       const verLabel = document.getElementById('download-ver-label');
       const dlBtn = document.getElementById('download-plugin-btn') as HTMLAnchorElement | null;

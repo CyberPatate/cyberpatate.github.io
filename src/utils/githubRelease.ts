@@ -38,9 +38,10 @@ export function formatDate(isoString: string): string {
 
 /**
  * Fetches the latest release from GitHub API with graceful fallback to local data.
- * Safe for build-time execution in SSG.
+ * Filters by product prefix (e.g. 'alphafloorefb-') so multiple products on the same
+ * repository do not conflict. Safe for build-time execution in SSG.
  */
-export async function getLatestRelease(): Promise<ReleaseInfo> {
+export async function getLatestRelease(productPrefix = 'alphafloorefb-'): Promise<ReleaseInfo> {
   const repoCandidates = [
     'CyberPatate/cyberpatate.github.io',
     'CyberPatate/AlphaFloorEFB',
@@ -57,34 +58,48 @@ export async function getLatestRelease(): Promise<ReleaseInfo> {
 
   for (const repo of repoCandidates) {
     try {
-      const url = `https://api.github.com/repos/${repo}/releases/latest`;
+      const url = `https://api.github.com/repos/${repo}/releases?per_page=30`;
       const res = await fetch(url, { headers, signal: AbortSignal.timeout(3000) });
 
       if (res.ok) {
-        const data = await res.json();
-        const zipAsset = data.assets?.find((a: any) =>
-          typeof a.name === 'string' && a.name.endsWith('.zip')
-        );
+        const releases = await res.json();
+        if (Array.isArray(releases) && releases.length > 0) {
+          // Find the latest release matching productPrefix (e.g. "alphafloorefb-")
+          // If querying AlphaFloorEFB directly (standalone repo), it might not have prefix, so fallback to first non-draft
+          const targetRelease = releases.find((r: any) =>
+            typeof r.tag_name === 'string' && r.tag_name.startsWith(productPrefix)
+          ) || releases.find((r: any) => !r.prerelease && !r.draft) || releases[0];
 
-        const version = data.tag_name || fallbackRelease.tag_name;
-        const assetName = zipAsset?.name || fallbackRelease.asset_name;
-        const downloadUrl = zipAsset?.browser_download_url || fallbackRelease.download_url;
-        const assetSize = zipAsset?.size || fallbackRelease.asset_size;
-        const publishedAtIso = data.published_at || fallbackRelease.published_at;
-        const bodyMarkdown = data.body || fallbackRelease.body;
+          if (targetRelease) {
+            const rawTag = targetRelease.tag_name || fallbackRelease.tag_name;
+            const version = rawTag.startsWith(productPrefix)
+              ? rawTag.slice(productPrefix.length)
+              : rawTag;
 
-        return {
-          version,
-          name: data.name || `AlphaFloor EFB ${version}`,
-          publishedAt: formatDate(publishedAtIso),
-          publishedAtIso,
-          downloadUrl,
-          assetName,
-          assetSizeFormatted: formatBytes(assetSize),
-          bodyMarkdown,
-          bodyHtml: renderMarkdown(bodyMarkdown),
-          releasePageUrl: data.html_url || fallbackRelease.html_url,
-        };
+            const zipAsset = targetRelease.assets?.find((a: any) =>
+              typeof a.name === 'string' && a.name.endsWith('.zip')
+            );
+
+            const assetName = zipAsset?.name || fallbackRelease.asset_name;
+            const downloadUrl = zipAsset?.browser_download_url || fallbackRelease.download_url;
+            const assetSize = zipAsset?.size || fallbackRelease.asset_size;
+            const publishedAtIso = targetRelease.published_at || fallbackRelease.published_at;
+            const bodyMarkdown = targetRelease.body || fallbackRelease.body;
+
+            return {
+              version,
+              name: targetRelease.name || `AlphaFloor EFB ${version}`,
+              publishedAt: formatDate(publishedAtIso),
+              publishedAtIso,
+              downloadUrl,
+              assetName,
+              assetSizeFormatted: formatBytes(assetSize),
+              bodyMarkdown,
+              bodyHtml: renderMarkdown(bodyMarkdown),
+              releasePageUrl: targetRelease.html_url || fallbackRelease.html_url,
+            };
+          }
+        }
       }
     } catch {
       // Ignore network / timeout errors and try candidate or fallback
@@ -92,8 +107,13 @@ export async function getLatestRelease(): Promise<ReleaseInfo> {
   }
 
   // Fallback to local checked-in release metadata
+  const fallbackRawTag = fallbackRelease.tag_name;
+  const fallbackVersion = fallbackRawTag.startsWith(productPrefix)
+    ? fallbackRawTag.slice(productPrefix.length)
+    : fallbackRawTag;
+
   return {
-    version: fallbackRelease.tag_name,
+    version: fallbackVersion,
     name: fallbackRelease.name,
     publishedAt: formatDate(fallbackRelease.published_at),
     publishedAtIso: fallbackRelease.published_at,

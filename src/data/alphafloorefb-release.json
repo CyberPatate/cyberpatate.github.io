@@ -1,9 +1,10 @@
 {
-  "tag_name": "v0.1.0",
+  "tag_name": "alphafloorefb-v0.1.0",
+  "version": "v0.1.0",
   "name": "AlphaFloor EFB v0.1.0",
   "published_at": "2026-10-14T11:00:00Z",
-  "html_url": "https://github.com/CyberPatate/cyberpatate.github.io/releases/tag/v0.1.0",
-  "download_url": "https://github.com/CyberPatate/cyberpatate.github.io/releases/download/v0.1.0/AlphaFloorEFB-v0.1.0.zip",
+  "html_url": "https://github.com/CyberPatate/cyberpatate.github.io/releases/tag/alphafloorefb-v0.1.0",
+  "download_url": "https://github.com/CyberPatate/cyberpatate.github.io/releases/download/alphafloorefb-v0.1.0/AlphaFloorEFB-v0.1.0.zip",
   "asset_name": "AlphaFloorEFB-v0.1.0.zip",
   "asset_size": 11785984,
   "body": "### Initial Release\n\n* **Fleet Integration**: Deep dataref synchronization with the ToLiss Airbus fleet (A319, A320neo, A321, A321XLR, A330-900, A340-600).\n* **Avionics Dark Aero Cockpit UI**: Responsive touch tablet interface rendered directly inside the 3D cockpit.\n* **Wi-Fi Remote Tablet Streaming**: Fly with external tablets, iPads, laptops, or secondary monitors connected over your local Wi-Fi network.\n* **Takeoff & Landing Performance**: Precise computation of FLEX takeoff temperatures, V-speeds (V1, VR, V2), trim settings, and runway distance.\n* **One-Click MCDU Sync**: Direct transfer of takeoff performance data into the ToLiss FMGS scratchpad.\n* **Built-in 7-Day Free Trial**: Full access out of the box with zero setup hassle."
