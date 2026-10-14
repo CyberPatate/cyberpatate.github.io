@@ -8,14 +8,14 @@ const release = await getLatestRelease();
 <Layout
   title="AlphaFloor EFB — Modern Electronic Flight Bag for Airbus in X-Plane 12"
   description="Modern Electronic Flight Bag for Airbus aircraft in X-Plane 12. Integrated into the 3D cockpit tablet and accessible from any iPad, tablet, or browser over local Wi-Fi. Optimized for the ToLiss Airbus fleet."
-  image="/images/alphafloorefb-icon.svg"
+  image="/images/alphafloorefb-icon.png"
 >
   <!-- Hero Section -->
   <section class="efb-hero section">
     <div class="container">
       <div class="efb-hero-badge-wrap">
         <span class="section-tag">
-          <span class="pulse-indicator"></span>
+          <img src="/images/alphafloorefb-icon.png" alt="AlphaFloor EFB" class="hero-badge-icon" width="22" height="22" />
           <span>Airbus Electronic Flight Bag · X-Plane 12</span>
         </span>
       </div>
@@ -740,6 +740,12 @@ const release = await getLatestRelease();
 
   .efb-hero-badge-wrap {
     margin-bottom: 1.25rem;
+  }
+
+  .hero-badge-icon {
+    border-radius: 5px;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
   }
 
   .pulse-indicator {

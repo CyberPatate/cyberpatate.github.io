@@ -82,7 +82,7 @@ import Layout from '../layouts/Layout.astro';
 
           <div class="product-header">
             <div class="product-icon-wrap">
-              <img src="/images/alphafloorefb-icon.svg" alt="AlphaFloor EFB Icon" width="48" height="48" />
+              <img src="/images/alphafloorefb-icon.png" alt="AlphaFloor EFB Icon" width="48" height="48" />
             </div>
             <div>
               <h3 class="product-name">AlphaFloor EFB</h3>
@@ -432,6 +432,11 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+
+  .product-icon-wrap img {
+    border-radius: 8px;
+    object-fit: contain;
   }
 
   .product-name {
