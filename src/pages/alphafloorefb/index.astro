@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getLatestRelease } from '../../utils/githubRelease';
+
+const release = await getLatestRelease();
 ---
 
 <Layout
@@ -33,7 +36,14 @@ import Layout from '../../layouts/Layout.astro';
           <span class="btn-label">Buy Lifetime License — 11.99€</span>
         </button>
 
-        <a href="#features" class="btn btn-secondary btn-lg">
+        <a href="#download" class="btn btn-secondary btn-lg">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Download Free Trial ({release.version})</span>
+        </a>
+
+        <a href="#features" class="btn btn-ghost btn-lg">
           <span>Explore Features</span>
           <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -508,6 +518,98 @@ import Layout from '../../layouts/Layout.astro';
 
         <div class="terms-footer-link">
           <a href="/terms" class="btn btn-secondary btn-sm">Read Complete Studio EULA & Terms of Sale</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download & Latest Release Section with Changelog -->
+  <section class="section download-section" id="download">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag green">Available Now</span>
+        <h2 class="section-title">Download & Latest Release</h2>
+        <p class="section-subtitle">
+          Download the latest build for X-Plane 12 with universal platform support. Includes a 7-day full-featured free trial.
+        </p>
+      </div>
+
+      <div class="download-card glass-panel">
+        <div class="download-meta-header">
+          <div class="release-tag-group">
+            <span class="release-badge-pill green">LATEST STABLE</span>
+            <span class="release-ver-num mono" id="release-version-text">{release.version}</span>
+            <span class="release-date mono" id="release-date-text">{release.publishedAt}</span>
+          </div>
+          <div class="skunkcrafts-indicator">
+            <span class="indicator-dot"></span>
+            <span>SkunkCrafts Updater Ready</span>
+          </div>
+        </div>
+
+        <div class="download-action-row">
+          <div class="download-primary-col">
+            <a
+              id="download-plugin-btn"
+              href={release.downloadUrl}
+              class="btn btn-pro btn-xl download-main-btn"
+              download
+            >
+              <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <div class="btn-text-block">
+                <span class="btn-main-title">Download AlphaFloor EFB <span id="download-ver-label">({release.version})</span></span>
+                <span class="btn-sub-caption">
+                  Universal Archive · <span id="download-size-label">{release.assetSizeFormatted}</span> · .ZIP
+                </span>
+              </div>
+            </a>
+            <p class="download-trial-note">
+              ✓ 7-day unrestricted trial included out of the box. No credit card or account required.
+            </p>
+          </div>
+
+          <div class="download-platforms-col">
+            <span class="platform-title">INCLUDED IN UNIVERSAL ARCHIVE:</span>
+            <div class="platform-tags">
+              <span class="platform-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.899"/></svg>
+                Windows 10 / 11 (64-bit)
+              </span>
+              <span class="platform-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.9.04-2 .6-2.65 1.36-.57.65-1.07 1.72-.94 2.76 1.02.08 2.05-.55 2.58-1.25z"/></svg>
+                macOS Universal (Apple Silicon & Intel)
+              </span>
+              <span class="platform-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                Linux 64-bit
+              </span>
+            </div>
+            <div class="compat-indicator">
+              <span>✈ Compatible with X-Plane 12.00+ and ToLiss Airbus fleet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Changelog Entry Container -->
+        <div class="changelog-container">
+          <div class="changelog-header">
+            <div class="changelog-title-group">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 class="changelog-heading">What's New in {release.version}</h3>
+            </div>
+            <a href={release.releasePageUrl} target="_blank" rel="noopener noreferrer" class="release-notes-link">
+              <span>GitHub Release Details</span>
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="changelog-body-box" id="changelog-body-content" set:html={release.bodyHtml} />
         </div>
       </div>
     </div>
@@ -1346,9 +1448,247 @@ import Layout from '../../layouts/Layout.astro';
       grid-template-columns: 1fr;
     }
 
+    .download-action-row {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
     .license-terms-card {
       padding: 2rem 1.5rem;
     }
+  }
+
+  /* Download & Changelog Section Styles */
+  .download-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .download-card {
+    padding: 2.5rem;
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    margin-top: 1rem;
+  }
+
+  .download-meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 2rem;
+  }
+
+  .release-tag-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .release-badge-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    letter-spacing: 0.06em;
+  }
+
+  .release-badge-pill.green {
+    background: var(--hud-green-dim);
+    color: var(--hud-green);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+
+  .release-ver-num {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .release-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .skunkcrafts-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--hud-cyan);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+  }
+
+  .indicator-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--hud-cyan);
+    box-shadow: 0 0 8px var(--hud-cyan);
+  }
+
+  .download-action-row {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 2rem;
+  }
+
+  .download-main-btn {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.2rem 1.75rem;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+  }
+
+  .btn-text-block {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .btn-main-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .btn-sub-caption {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    font-family: var(--font-mono);
+    margin-top: 0.25rem;
+  }
+
+  .download-trial-note {
+    font-size: 0.82rem;
+    color: var(--hud-green);
+    margin-top: 0.85rem;
+    font-weight: 500;
+  }
+
+  .download-platforms-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .platform-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .platform-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .compat-indicator {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  /* Changelog Box */
+  .changelog-container {
+    background: rgba(8, 11, 18, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+  }
+
+  .changelog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .changelog-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--hud-cyan);
+  }
+
+  .changelog-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .release-notes-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--hud-cyan);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .release-notes-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+
+  .changelog-body-box {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .changelog-body-box h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 1.25rem 0 0.5rem 0;
+  }
+
+  .changelog-body-box ul {
+    margin: 0.5rem 0 1rem 1.25rem;
+    padding: 0;
+    list-style-type: disc;
+  }
+
+  .changelog-body-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .changelog-body-box strong {
+    color: var(--text-primary);
   }
 </style>
 
@@ -1396,4 +1736,35 @@ import Layout from '../../layouts/Layout.astro';
   document.getElementById('buy-pricing-btn')?.addEventListener('click', (e) => {
     handleCheckout(e.currentTarget as HTMLButtonElement);
   });
+
+  // Progressive enhancement: query GitHub Releases API in background for live updates
+  async function checkLiveRelease() {
+    try {
+      const res = await fetch('https://api.github.com/repos/CyberPatate/cyberpatate.github.io/releases/latest');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !data.tag_name) return;
+
+      const zipAsset = data.assets && data.assets.find((a: any) => typeof a.name === 'string' && a.name.endsWith('.zip'));
+      const ver = data.tag_name;
+      const verText = document.getElementById('release-version-text');
+      const verLabel = document.getElementById('download-ver-label');
+      const dlBtn = document.getElementById('download-plugin-btn') as HTMLAnchorElement | null;
+      const sizeLabel = document.getElementById('download-size-label');
+
+      if (verText) verText.textContent = ver;
+      if (verLabel) verLabel.textContent = `(${ver})`;
+      if (dlBtn && zipAsset && zipAsset.browser_download_url) {
+        dlBtn.href = zipAsset.browser_download_url;
+      }
+      if (sizeLabel && zipAsset && zipAsset.size) {
+        const mb = (zipAsset.size / (1024 * 1024)).toFixed(1);
+        sizeLabel.textContent = `${mb} MB`;
+      }
+    } catch {
+      // Quietly keep build-time values
+    }
+  }
+
+  checkLiveRelease();
 </script>

@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  repository_dispatch:
+    types: [ alphafloorefb_release ]
   workflow_dispatch:
 
 permissions:
@@ -25,6 +27,8 @@ jobs:
         uses: withastro/action@v5
         with:
           node-version: 22
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: build
