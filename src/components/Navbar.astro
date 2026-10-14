@@ -19,10 +19,11 @@ const { currentPath = '/' } = Astro.props;
 
       <div class="nav-links">
         <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
-        <a href="/alphafloorefb/" class={`nav-link ${currentPath.startsWith('/alphafloorefb') ? 'active' : ''}`}>
+        <a href="/alphafloorefb/" class={`nav-link ${currentPath === '/alphafloorefb/' || currentPath === '/alphafloorefb' ? 'active' : ''}`}>
           <span>AlphaFloor EFB</span>
           <span class="efb-tag">11.99€</span>
         </a>
+        <a href="/alphafloorefb/docs/" class={`nav-link ${currentPath.startsWith('/alphafloorefb/docs') ? 'active' : ''}`}>Docs</a>
         <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="nav-link">
           <span>XLauncher</span>
           <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,6 +61,7 @@ const { currentPath = '/' } = Astro.props;
   <div class="mobile-menu" id="mobile-menu">
     <a href="/" class="mobile-link">Home</a>
     <a href="/alphafloorefb/" class="mobile-link">AlphaFloor EFB (11.99€)</a>
+    <a href="/alphafloorefb/docs/" class="mobile-link">AlphaFloor EFB Docs</a>
     <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="mobile-link">XLauncher Pro</a>
     <a href="/#about" class="mobile-link">About the Studio</a>
     <div class="mobile-buttons">
