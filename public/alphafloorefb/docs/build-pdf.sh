@@ -13,26 +13,30 @@ if ! command -v pandoc &> /dev/null; then
     exit 1
 fi
 
-# Detect PDF engine (prefer xelatex, fallback to pdflatex, lualatex, or weasyprint)
-PDF_ENGINE=""
-if command -v xelatex &> /dev/null; then
-    PDF_ENGINE="xelatex"
-elif command -v pdflatex &> /dev/null; then
-    PDF_ENGINE="pdflatex"
-elif command -v lualatex &> /dev/null; then
-    PDF_ENGINE="lualatex"
-elif command -v weasyprint &> /dev/null; then
-    PDF_ENGINE="weasyprint"
-elif command -v typst &> /dev/null; then
-    PDF_ENGINE="typst"
-elif command -v wkhtmltopdf &> /dev/null; then
-    PDF_ENGINE="wkhtmltopdf"
-else
-    echo "Error: No suitable PDF engine found (xelatex, pdflatex, or weasyprint)." >&2
-    exit 1
+# Detect PDF engine (prefer typst or xelatex, fallback to pdflatex, lualatex, weasyprint, or wkhtmltopdf)
+PDF_ENGINE="${PDF_ENGINE:-}"
+if [ -z "${PDF_ENGINE}" ]; then
+    if command -v typst &> /dev/null; then
+        PDF_ENGINE="typst"
+    elif command -v xelatex &> /dev/null; then
+        PDF_ENGINE="xelatex"
+    elif command -v pdflatex &> /dev/null; then
+        PDF_ENGINE="pdflatex"
+    elif command -v lualatex &> /dev/null; then
+        PDF_ENGINE="lualatex"
+    elif command -v weasyprint &> /dev/null; then
+        PDF_ENGINE="weasyprint"
+    elif command -v wkhtmltopdf &> /dev/null; then
+        PDF_ENGINE="wkhtmltopdf"
+    else
+        echo "Error: No suitable PDF engine found (typst, xelatex, pdflatex, or weasyprint)." >&2
+        exit 1
+    fi
 fi
 
 echo "Using PDF engine: ${PDF_ENGINE}"
+
+mkdir -p "$(dirname "${OUTPUT_PDF}")"
 
 # Ordered list of chapters
 DOCS=(
@@ -52,6 +56,21 @@ DOCS=(
     "${SCRIPT_DIR}/troubleshooting.md"
 )
 
+EXTRA_ARGS=()
+if [ "${PDF_ENGINE}" = "typst" ]; then
+    # Typst requires hex color strings without leading hash for pandoc's template rgb(...) function
+    EXTRA_ARGS=(
+        -V linkcolor="0066cc"
+    )
+elif [ "${PDF_ENGINE}" = "xelatex" ] || [ "${PDF_ENGINE}" = "pdflatex" ] || [ "${PDF_ENGINE}" = "lualatex" ]; then
+    EXTRA_ARGS=(
+        -V geometry:margin=1in
+        -V linkcolor=blue
+        -V urlcolor=blue
+        -V toccolor=black
+    )
+fi
+
 pandoc "${DOCS[@]}" \
     --output="${OUTPUT_PDF}" \
     --pdf-engine="${PDF_ENGINE}" \
@@ -62,9 +81,6 @@ pandoc "${DOCS[@]}" \
     --metadata subtitle="Modern Electronic Flight Bag for Airbus in X-Plane 12" \
     --metadata author="CyberPatate" \
     --metadata date="$(date +'%B %Y')" \
-    -V geometry:margin=1in \
-    -V linkcolor=blue \
-    -V urlcolor=blue \
-    -V toccolor=black
+    "${EXTRA_ARGS[@]}"
 
 echo "=== Successfully generated: ${OUTPUT_PDF} ==="
