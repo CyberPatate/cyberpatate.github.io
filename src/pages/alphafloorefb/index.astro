@@ -3,6 +3,65 @@ import Layout from '../../layouts/Layout.astro';
 import { getLatestRelease } from '../../utils/githubRelease';
 
 const release = await getLatestRelease();
+
+const carouselSlides = [
+  {
+    id: 'home',
+    title: 'Home Screen & Launcher',
+    caption: 'Modern Airbus flight deck launcher with instant access to all avionics tools and live telemetry',
+    image: '/images/alphafloorefb/HomeScreen.png',
+    tab: 'Home',
+  },
+  {
+    id: 'simbrief',
+    title: 'SimBrief Flight Plan',
+    caption: 'One-click dispatch package import with detailed route summary, fuel calculations, and navlog',
+    image: '/images/alphafloorefb/SimbriefOFPSummary.png',
+    tab: 'SimBrief',
+  },
+  {
+    id: 'weight-balance',
+    title: 'Weight & Balance',
+    caption: 'Interactive passenger cabin boarding, cargo hold distribution, and dynamic CG flight envelope',
+    image: '/images/alphafloorefb/WeightBalance.png',
+    tab: 'Weight & Balance',
+  },
+  {
+    id: 'takeoff',
+    title: 'Takeoff Performance Calculator',
+    caption: 'Airbus assumed FLEX temperature, V1/VR/V2 speeds, and direct ToLiss FMGS MCDU scratchpad sync',
+    image: '/images/alphafloorefb/TakeOffPerf.png',
+    tab: 'Takeoff Perf',
+  },
+  {
+    id: 'charts',
+    title: 'Navigraph Charts & Moving Map',
+    caption: 'Worldwide Jeppesen charts, terminal procedures, and georeferenced real-time GPS position overlay',
+    image: '/images/alphafloorefb/ChartsChartOverlay.png',
+    tab: 'Charts & Map',
+  },
+  {
+    id: 'checklists',
+    title: 'Interactive Airbus Checklists',
+    caption: 'Challenge-and-response operational checklists for all flight phases with custom JSON support',
+    image: '/images/alphafloorefb/Checklists.png',
+    tab: 'Checklists',
+  },
+  {
+    id: 'ground',
+    title: 'Doors & Ground Services',
+    caption: 'Interactive overhead aircraft schematic controlling passenger doors, cargo hatches, GPU, and fueling',
+    image: '/images/alphafloorefb/GroundOps.png',
+    tab: 'Ground Ops',
+  },
+  {
+    id: 'documents',
+    title: 'Documents & PDF Viewer',
+    caption: 'In-cockpit PDF reader for Quick Reference Handbooks, airline SOPs, and company flight manuals',
+    image: '/images/alphafloorefb/Documents.png',
+    tab: 'Documents',
+  },
+];
 ---
 
 <Layout
@@ -70,99 +129,79 @@ const release = await getLatestRelease();
         </div>
       </div>
 
-      <!-- Interactive Avionics Tablet Preview Mockup -->
-      <div class="efb-tablet-frame glass-panel">
-        <div class="tablet-top-bar">
-          <div class="tablet-status-left">
-            <span class="status-pill green">ONLINE</span>
-            <span class="aircraft-type-text">A321-271NX · F-HBNX</span>
-          </div>
-          <div class="tablet-time mono">UTC 12:45:00 · FL340</div>
-          <div class="tablet-status-right">
-            <span class="status-pill cyan">Wi-Fi LAN: 192.168.1.42:8080</span>
-            <span class="battery-text">100% ⚡</span>
-          </div>
+      <!-- Interactive Avionics Screenshots Carousel -->
+      <div class="efb-carousel-container glass-panel" id="efb-carousel" role="region" aria-roledescription="carousel" aria-label="AlphaFloor EFB Screenshot Showcase">
+        <!-- Carousel Tab Navigation -->
+        <div class="carousel-tabs" role="tablist" aria-label="Screenshots">
+          {carouselSlides.map((slide, index) => (
+            <button
+              class={`carousel-tab ${index === 0 ? 'active' : ''}`}
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              data-index={index}
+            >
+              <span>{slide.tab}</span>
+            </button>
+          ))}
         </div>
 
-        <div class="tablet-main-grid">
-          <!-- Left App Navigation -->
-          <div class="tablet-sidebar">
-            <div class="tablet-app-item active">
-              <span class="app-icon">📊</span>
-              <span class="app-name">Performance</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">⚖️</span>
-              <span class="app-name">Weight & Balance</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">📋</span>
-              <span class="app-name">SimBrief OFP</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">🗺️</span>
-              <span class="app-name">Moving Map</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">📈</span>
-              <span class="app-name">Navigraph Charts</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">🚪</span>
-              <span class="app-name">Doors & Ground</span>
-            </div>
-            <div class="tablet-app-item">
-              <span class="app-icon">✅</span>
-              <span class="app-name">Checklists</span>
-            </div>
+        <!-- Carousel Viewport & Slides -->
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            {carouselSlides.map((slide, index) => (
+              <div
+                class={`carousel-slide ${index === 0 ? 'active' : ''}`}
+                role="group"
+                aria-roledescription="slide"
+                aria-label={`${index + 1} of ${carouselSlides.length}: ${slide.title}`}
+                data-slide-index={index}
+              >
+                <div class="carousel-image-wrapper">
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    width="1792"
+                    height="1170"
+                  />
+                </div>
+                <div class="carousel-caption">
+                  <div class="carousel-caption-content">
+                    <span class="carousel-badge">{slide.tab}</span>
+                    <h3 class="carousel-title">{slide.title}</h3>
+                    <p class="carousel-desc">{slide.caption}</p>
+                  </div>
+                  <div class="carousel-counter mono">
+                    <span>{index + 1}</span> / <span>{carouselSlides.length}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <!-- Active App Content (Takeoff Perf Mockup) -->
-          <div class="tablet-content-view">
-            <div class="app-header-row">
-              <div>
-                <h4 class="app-title-text">TAKEOFF PERFORMANCE CALCULATION</h4>
-                <p class="app-subtitle-text">LFPG (PARIS CHARLES DE GAULLE) · RWY 26L · DRY · TOW 82.4T</p>
-              </div>
-              <span class="telemetry-badge green">DATAREFS SYNCED</span>
-            </div>
+          <!-- Carousel Arrow Buttons -->
+          <button class="carousel-arrow prev" id="carousel-prev" aria-label="Previous screenshot">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button class="carousel-arrow next" id="carousel-next" aria-label="Next screenshot">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
 
-            <div class="perf-results-grid">
-              <div class="perf-box flex-box">
-                <span class="perf-box-label">FLEX TEMP</span>
-                <span class="perf-box-val amber mono">58°C</span>
-                <span class="perf-box-sub">THRUST REDUCTION</span>
-              </div>
-              <div class="perf-box speed-box">
-                <span class="perf-box-label">V1</span>
-                <span class="perf-box-val cyan mono">142</span>
-                <span class="perf-box-sub">DECISION</span>
-              </div>
-              <div class="perf-box speed-box">
-                <span class="perf-box-label">VR</span>
-                <span class="perf-box-val cyan mono">145</span>
-                <span class="perf-box-sub">ROTATION</span>
-              </div>
-              <div class="perf-box speed-box">
-                <span class="perf-box-label">V2</span>
-                <span class="perf-box-val cyan mono">148</span>
-                <span class="perf-box-sub">SAFETY SPEED</span>
-              </div>
-            </div>
-
-            <div class="perf-config-row">
-              <div class="config-pill"><span class="cfg-lbl">FLAPS:</span> <strong>CONF 1+F</strong></div>
-              <div class="config-pill"><span class="cfg-lbl">THS:</span> <strong>UP 0.8</strong></div>
-              <div class="config-pill"><span class="cfg-lbl">PACKS:</span> <strong>ON</strong></div>
-              <div class="config-pill"><span class="cfg-lbl">ANTI-ICE:</span> <strong>OFF</strong></div>
-              <div class="config-pill"><span class="cfg-lbl">REQ RUNWAY:</span> <strong>2,140 m</strong> (AVAIL: 4,215 m)</div>
-            </div>
-
-            <div class="mcdu-sync-banner">
-              <span class="mcdu-icon">⚡</span>
-              <span><strong>MCDU Scratchpad Sync</strong>: One-click transfers flex temp, V-speeds, and trim settings directly into the ToLiss FMGS!</span>
-            </div>
-          </div>
+        <!-- Carousel Progress Dots -->
+        <div class="carousel-dots">
+          {carouselSlides.map((_, index) => (
+            <button
+              class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+              aria-label={`Go to slide ${index + 1}`}
+              data-index={index}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -813,207 +852,230 @@ const release = await getLatestRelease();
     color: var(--text-primary);
   }
 
-  /* Tablet Interactive Mockup */
-  .efb-tablet-frame {
+  /* Avionics Screenshots Carousel */
+  .efb-carousel-container {
     max-width: 1060px;
     margin: 0 auto;
     padding: 1.5rem;
     border-color: rgba(56, 189, 248, 0.35);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(56, 189, 248, 0.15);
+    position: relative;
   }
 
-  .tablet-top-bar {
+  .carousel-tabs {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: 1rem;
+    justify-content: center;
+    gap: 0.5rem;
     margin-bottom: 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .tablet-status-left,
-  .tablet-status-right {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  .carousel-tabs::-webkit-scrollbar {
+    display: none;
   }
 
-  .status-pill {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .status-pill.green {
-    background: var(--hud-green-dim);
-    color: var(--hud-green);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-  }
-
-  .status-pill.cyan {
-    background: var(--hud-cyan-dim);
-    color: var(--hud-cyan);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-  }
-
-  .tablet-main-grid {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 1.5rem;
-    text-align: left;
-  }
-
-  .tablet-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: rgba(8, 11, 18, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius-md);
-    padding: 0.75rem;
-  }
-
-  .tablet-app-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.65rem 0.85rem;
-    border-radius: var(--radius-sm);
-    font-size: 0.85rem;
+  .carousel-tab {
+    font-size: 0.82rem;
     font-weight: 600;
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-secondary);
-    cursor: default;
+    cursor: pointer;
+    white-space: nowrap;
     transition: all var(--transition-fast);
   }
 
-  .tablet-app-item.active {
-    background: rgba(56, 189, 248, 0.15);
+  .carousel-tab:hover {
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+    color: var(--text-primary);
+  }
+
+  .carousel-tab.active {
+    background: rgba(56, 189, 248, 0.18);
+    border-color: rgba(56, 189, 248, 0.45);
     color: var(--hud-cyan);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
   }
 
-  .tablet-content-view {
-    background: rgba(13, 18, 31, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  .carousel-viewport {
+    position: relative;
     border-radius: var(--radius-md);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    overflow: hidden;
+    background: #090d16;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .app-header-row {
+  .carousel-track {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .carousel-slide.active {
+    display: flex;
+    animation: fadeInSlide 0.35s ease-in-out;
+  }
+
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: scale(0.995);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .carousel-image-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(16, 25, 45, 0.6) 0%, #070a12 100%);
+    padding: 0.5rem;
+  }
+
+  .carousel-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 600px;
+    border-radius: var(--radius-sm);
+  }
+
+  .carousel-caption {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    padding: 1.25rem 1.75rem;
+    background: rgba(10, 15, 28, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    gap: 1.25rem;
+    text-align: left;
   }
 
-  .app-title-text {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: 0.04em;
+  .carousel-caption-content {
+    flex: 1;
   }
 
-  .app-subtitle-text {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-top: 0.2rem;
-  }
-
-  .perf-results-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-
-  .perf-box {
-    background: rgba(8, 11, 18, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-sm);
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .perf-box-label {
+  .carousel-badge {
+    font-family: var(--font-mono);
     font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
-  }
-
-  .perf-box-val {
-    font-size: 2rem;
     font-weight: 800;
-    margin: 0.25rem 0;
-  }
-
-  .perf-box-val.amber {
-    color: var(--hud-amber);
-  }
-
-  .perf-box-val.cyan {
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm);
     color: var(--hud-cyan);
+    background: var(--hud-cyan-dim);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    display: inline-block;
+    margin-bottom: 0.4rem;
   }
 
-  .perf-box-sub {
-    font-size: 0.68rem;
-    color: var(--text-muted);
+  .carousel-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
   }
 
-  .perf-config-row {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    flex-wrap: wrap;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius-sm);
-    padding: 0.75rem 1rem;
-    font-size: 0.8rem;
-  }
-
-  .config-pill {
+  .carousel-desc {
+    font-size: 0.88rem;
     color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
   }
 
-  .config-pill strong {
-    color: var(--text-primary);
-  }
-
-  .cfg-lbl {
+  .carousel-counter {
+    font-size: 0.82rem;
     color: var(--text-muted);
-    font-size: 0.72rem;
-    margin-right: 0.25rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
   }
 
-  .mcdu-sync-banner {
+  .carousel-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(13, 18, 31, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: var(--hud-cyan);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    background: rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: var(--radius-sm);
-    padding: 0.85rem 1rem;
-    font-size: 0.85rem;
-    color: var(--text-primary);
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-fast);
+    z-index: 5;
+    padding: 0;
   }
 
-  .mcdu-icon {
-    font-size: 1.1rem;
+  .carousel-arrow:hover {
+    background: rgba(56, 189, 248, 0.25);
+    border-color: var(--hud-cyan);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  }
+
+  .carousel-arrow.prev {
+    left: 1rem;
+  }
+
+  .carousel-arrow.next {
+    right: 1rem;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    padding: 0;
+  }
+
+  .carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .carousel-dot.active {
+    width: 26px;
+    border-radius: 10px;
+    background: var(--hud-cyan);
+    border-color: var(--hud-cyan);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
   }
 
   /* Feature Cards */
@@ -1455,22 +1517,28 @@ const release = await getLatestRelease();
 
   /* Responsive Adjustments */
   @media (max-width: 860px) {
-    .tablet-main-grid {
-      grid-template-columns: 1fr;
+    .efb-carousel-container {
+      padding: 0.85rem;
     }
 
-    .tablet-sidebar {
-      flex-direction: row;
-      overflow-x: auto;
-      padding: 0.5rem;
+    .carousel-caption {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
     }
 
-    .tablet-app-item {
-      white-space: nowrap;
+    .carousel-arrow {
+      width: 38px;
+      height: 38px;
     }
 
-    .perf-results-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .carousel-arrow.prev {
+      left: 0.5rem;
+    }
+
+    .carousel-arrow.next {
+      right: 0.5rem;
     }
 
     .pricing-grid {
@@ -1846,4 +1914,123 @@ const release = await getLatestRelease();
   }
 
   checkLiveRelease();
+
+  // Screenshots Carousel Interaction
+  function initCarousel() {
+    const container = document.getElementById('efb-carousel');
+    if (!container) return;
+
+    const slides = container.querySelectorAll<HTMLElement>('.carousel-slide');
+    const tabs = container.querySelectorAll<HTMLButtonElement>('.carousel-tab');
+    const dots = container.querySelectorAll<HTMLButtonElement>('.carousel-dot');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoInterval: number | undefined;
+
+    function goToSlide(index: number) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        const isActive = i === currentIndex;
+        slide.classList.toggle('active', isActive);
+      });
+
+      tabs.forEach((tab, i) => {
+        const isActive = i === currentIndex;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoInterval = window.setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 5500);
+    }
+
+    function stopAuto() {
+      if (autoInterval) {
+        clearInterval(autoInterval);
+        autoInterval = undefined;
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      startAuto();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      startAuto();
+    });
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const idx = Number(tab.getAttribute('data-index'));
+        if (!isNaN(idx)) {
+          goToSlide(idx);
+          startAuto();
+        }
+      });
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = Number(dot.getAttribute('data-index'));
+        if (!isNaN(idx)) {
+          goToSlide(idx);
+          startAuto();
+        }
+      });
+    });
+
+    container.addEventListener('mouseenter', stopAuto);
+    container.addEventListener('mouseleave', startAuto);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    container.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAuto();
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) goToSlide(currentIndex + 1);
+        else goToSlide(currentIndex - 1);
+      }
+      startAuto();
+    }, { passive: true });
+
+    // Keyboard navigation
+    container.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        goToSlide(currentIndex - 1);
+        startAuto();
+      } else if (e.key === 'ArrowRight') {
+        goToSlide(currentIndex + 1);
+        startAuto();
+      }
+    });
+
+    startAuto();
+  }
+
+  initCarousel();
+  document.addEventListener('astro:page-load', initCarousel);
 </script>
