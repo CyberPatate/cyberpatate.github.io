@@ -377,17 +377,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cockpit-tablet-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cockpit Tablet Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#screen-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -849,17 +838,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cockpit-tablet-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cockpit Tablet Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#screen-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -966,49 +944,31 @@
 
 
 <h1 id="interface-controls">Interface &amp; Controls<a class="headerlink" href="#interface-controls" title="Permanent link">&para;</a></h1>
-<p>The AlphaFloor EFB interface is designed to emulate modern airline flight deck tablets while maintaining clean readability and minimal cockpit clutter.</p>
-<hr />
-<h2 id="cockpit-tablet-overview">Cockpit Tablet Overview<a class="headerlink" href="#cockpit-tablet-overview" title="Permanent link">&para;</a></h2>
-<p>The EFB is mounted in the 3D cockpit on the Captain and First Officer side window frames. Both tablets can operate independently, allowing the crew to reference different screens simultaneously (e.g., Captain viewing Navigraph approach charts while First Officer computes landing performance).</p>
-<hr />
 <h2 id="screen-layout">Screen Layout<a class="headerlink" href="#screen-layout" title="Permanent link">&para;</a></h2>
 <p>The tablet display is divided into three functional areas:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+--------------------------------------------------------+
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>| [12:45 UTC] A321-271NX / F-HBNX      [LAN 192.168.1.42]|  &lt;- Top Status Bar
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+--------------------------------------------------------+
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>|                                                        |
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|                                                        |
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>|                    MAIN APPLICATION                    |
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>|                      CONTENT AREA                      |
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>|                                                        |
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>|                                                        |
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>+--------------------------------------------------------+
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>| [ HOME ]                                     [ SETUP ] |  &lt;- Bottom Bar
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>+--------------------------------------------------------+
-</code></pre></div>
 <p><img alt="AlphaFloor EFB Interface &amp; Launcher" src="../assets/images/HomeScreen.png" /></p>
 <h3 id="1-top-status-bar">1. Top Status Bar<a class="headerlink" href="#1-top-status-bar" title="Permanent link">&para;</a></h3>
-<p>The status bar remains visible across all screens to provide essential telemetry at a glance:</p>
 <ul>
-<li><strong>Clock Display</strong>: Displays current simulation time in both Local and UTC (Zulu) format.</li>
-<li><strong>Aircraft Telemetry</strong>: Shows active aircraft variant (e.g., A319, A320neo, A321LR, A330-900, A340-600) and airframe registration.</li>
-<li><strong>Network Status</strong>: Displays the local IP address and listening port for remote device connections.</li>
-<li><strong>Power &amp; Indicators</strong>: Visual indicators for battery charge level and data synchronization status.</li>
+<li><strong>Clock Display</strong>: Displays current simulation time.</li>
+<li><strong>Aircraft Type</strong>: Shows active aircraft variant (e.g., A319, A320neo, A321LR, A330-900, A340-600).</li>
+<li><strong>Power &amp; Indicators</strong>: Visual indicators for battery charge level and network status.</li>
 </ul>
 <h3 id="2-main-content-area">2. Main Content Area<a class="headerlink" href="#2-main-content-area" title="Permanent link">&para;</a></h3>
 <p>This central viewport displays whichever application is currently open (e.g., Performance Calculator, SimBrief OFP, Charts, or Checklists).</p>
 <h3 id="3-bottom-navigation-bar">3. Bottom Navigation Bar<a class="headerlink" href="#3-bottom-navigation-bar" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Home Button (Left)</strong>: Instantly returns to the application launcher grid from any screen.</li>
-<li><strong>Settings Button (Right)</strong>: Opens the system configuration panel to adjust brightness, display themes, Wi-Fi options, or license settings.</li>
+<li><strong>Quick Access Icons (Middle)</strong>: Allows switching between the main applications without returning to the home screen.</li>
+<li><strong>Settings Button (Right)</strong>: Opens the system configuration panel.</li>
 </ul>
 <hr />
 <h2 id="interaction-methods">Interaction Methods<a class="headerlink" href="#interaction-methods" title="Permanent link">&para;</a></h2>
 <h3 id="in-cockpit-3d-interaction">In-Cockpit 3D Interaction<a class="headerlink" href="#in-cockpit-3d-interaction" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Left Click</strong>: Tap any button, tab, input field, or checklist item.</li>
-<li><strong>Mouse Scroll Wheel</strong>: Scroll through long flight plans, operational documents, or checklist pages.</li>
-<li><strong>Text Input</strong>: Click inside an input field (such as an airport ICAO code or gross weight) and type directly on your physical keyboard.</li>
+<li><strong>Double Left Click</strong>: Quick zoom in/zoom out on documents and charts.</li>
+<li><strong>Mouse Drag</strong>: Hold the left mouse button and drag to scroll through documents, charts and list items.</li>
+<li><strong>Text Input</strong>: Click inside an input field (such as an airport ICAO code or gross weight) and type directly on your physical keyboard or use the virtual keyboard.</li>
 </ul>
 <h3 id="external-tablet-mobile-interaction">External Tablet &amp; Mobile Interaction<a class="headerlink" href="#external-tablet-mobile-interaction" title="Permanent link">&para;</a></h3>
 <p>When viewing the EFB on an iPad, Android tablet, phone, or laptop:</p>
