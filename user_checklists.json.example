@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Cockpit Preparation",
+    "items": [
+      { "item": "Gear Pins & Covers", "check": "REMOVED" },
+      { "item": "Fuel Quantity", "check": "___ KG/LB" },
+      { "item": "Seat Belts", "check": "On" },
+      { "item": "ADIRS", "check": "NAV" },
+      { "item": "Baro Ref", "check": "___ (both)" }
+    ]
+  },
+  {
+    "title": "Before Start",
+    "items": [
+      { "item": "Parking Brake", "check": "___" },
+      { "item": "T.O. Speeds & Thrust", "check": "___ (both)" },
+      { "item": "Windows", "check": "Closed (both)" },
+      { "item": "Beacon", "check": "On" }
+    ]
+  },
+  {
+    "title": "After Start",
+    "items": [
+      { "item": "Anti-Ice", "check": "___" },
+      { "item": "ECAM Status", "check": "Checked" },
+      { "item": "Pitch Trim", "check": "___ %" },
+      { "item": "Rudder Trim", "check": "Neutral" }
+    ]
+  },
+  {
+    "title": "Taxi",
+    "items": [
+      { "item": "Flight Control", "check": "Checked (both)" },
+      { "item": "Flaps Setting", "check": "Conf ___ (both)" },
+      { "item": "Radar & PWS", "check": "On & Auto" },
+      { "item": "Eng Mode Sel", "check": "___" },
+      {
+        "item": "ECAM Memo",
+        "check": "T.O. No Blue",
+        "subitems": [
+          "Auto Brk MAX",
+          "Signs On",
+          "Cabin Ready",
+          "Flaps T.O.",
+          "T.O Config Norm"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Lineup",
+    "items": [
+      { "item": "T.O. Runway", "check": "Conf ___ (both)" },
+      { "item": "TCAS", "check": "___" },
+      { "item": "Pack 1 & 2", "check": "___" }
+    ]
+  },
+  {
+    "title": "Approach",
+    "items": [
+      { "item": "Baro Ref", "check": "___ Set (Both)" },
+      { "item": "Seat Belts", "check": "On" },
+      { "item": "Minimum", "check": "___" },
+      { "item": "Auto-Brake", "check": "___" },
+      { "item": "Eng Mode Sel", "check": "___" }
+    ]
+  },
+  {
+    "title": "Landing",
+    "items": [
+      { "item": "Go-Around Alt", "check": "___ ft Set" },
+      { "item": "Cabin Crew", "check": "Advised" },
+      {
+        "item": "ECAM Memo",
+        "check": "Landing No Blue",
+        "subitems": [
+          "Ldg Gear Down",
+          "Signs On",
+          "Cabin Ready",
+          "Splrs Arm",
+          "Flaps Set"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "After Landing",
+    "items": [
+      { "item": "Radar & PWS", "check": "Off" }
+    ]
+  },
+  {
+    "title": "Parking",
+    "items": [
+      { "item": "Park Brk or Chocks", "check": "Set" },
+      { "item": "Engines", "check": "Off" },
+      { "item": "Wing Lights", "check": "Off" },
+      { "item": "Fuel Pumps", "check": "Off" }
+    ]
+  },
+  {
+    "title": "Securing the Aircraft",
+    "items": [
+      { "item": "Oxygen", "check": "Off" },
+      { "item": "Emer Exit Lights", "check": "Off" },
+      { "item": "EFBs", "check": "Off" },
+      { "item": "Batteries", "check": "Off" }
+    ]
+  }
+]
