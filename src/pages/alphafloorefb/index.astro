@@ -8,14 +8,14 @@ const carouselSlides = [
   {
     id: 'in-cockpit',
     title: 'In-Cockpit Flight Deck View',
-    caption: 'Seamlessly mounted on the Airbus flight deck window frame with responsive touch and 3D cockpit integration',
+    caption: 'Seamlessly mounted on the ToLiss EFB with responsive touch and 3D cockpit integration',
     image: '/images/alphafloorefb/InCockpitView.png',
     tab: 'In Cockpit',
   },
   {
     id: 'home',
     title: 'Home Screen & Launcher',
-    caption: 'Modern Airbus flight deck launcher with instant access to all avionics tools and live telemetry',
+    caption: 'Modern EFB launcher',
     image: '/images/alphafloorefb/HomeScreen.png',
     tab: 'Home',
   },
@@ -42,7 +42,7 @@ const carouselSlides = [
   },
   {
     id: 'charts',
-    title: 'Navigraph Charts & Moving Map',
+    title: 'Navigraph Charts & Moving Map Integration',
     caption: 'Worldwide Jeppesen charts, terminal procedures, and georeferenced real-time GPS position overlay',
     image: '/images/alphafloorefb/ChartsChartOverlay.png',
     tab: 'Charts & Map',
@@ -57,7 +57,7 @@ const carouselSlides = [
   {
     id: 'ground',
     title: 'Doors & Ground Services',
-    caption: 'Interactive overhead aircraft schematic controlling passenger doors, cargo hatches, GPU, and fueling',
+    caption: 'Interactive overhead aircraft schematic controlling passenger doors, cargo hatches and GPU',
     image: '/images/alphafloorefb/GroundOps.png',
     tab: 'Ground Ops',
   },
@@ -72,8 +72,8 @@ const carouselSlides = [
 ---
 
 <Layout
-  title="AlphaFloor EFB — Modern Electronic Flight Bag for Airbus in X-Plane 12"
-  description="Modern Electronic Flight Bag for Airbus aircraft in X-Plane 12. Integrated into the 3D cockpit tablet and accessible from any iPad, tablet, or browser over local Wi-Fi. Optimized for the ToLiss Airbus fleet."
+  title="AlphaFloor EFB — Modern Electronic Flight Bag for ToLiss aircrafts for X-Plane 12"
+  description="Modern Electronic Flight Bag for ToLiss aircraft in X-Plane 12. Integrated into the 3D cockpit tablet and accessible from any iPad, tablet, or browser over local Wi-Fi. Optimized for the ToLiss aircraft fleet."
   image="/images/alphafloorefb-icon.png"
 >
   <!-- Hero Section -->
@@ -82,7 +82,7 @@ const carouselSlides = [
       <div class="efb-hero-badge-wrap">
         <span class="section-tag">
           <img src="/images/alphafloorefb-icon.png" alt="AlphaFloor EFB" class="hero-badge-icon" width="22" height="22" />
-          <span>Airbus Electronic Flight Bag · X-Plane 12</span>
+          <span>Electronic Flight Bag for ToLiss aircrafts · X-Plane 12</span>
         </span>
       </div>
 
@@ -91,7 +91,7 @@ const carouselSlides = [
       </h1>
 
       <p class="efb-hero-subtitle">
-        Integrated seamlessly into your 3D cockpit tablet and accessible from your iPad, Android tablet, phone, or laptop over local Wi-Fi. Features deep aircraft integration, intuitive touch controls, and zero impact on simulator framerates.
+        Integrated seamlessly into your 3D cockpit tablet and accessible from your iPad, Android tablet, phone, or laptop over your local network.
       </p>
 
       <div class="efb-hero-actions">
@@ -218,7 +218,7 @@ const carouselSlides = [
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Dual Display Technology</span>
+        <span class="section-tag cyan">Dual Display Technology</span>
         <h2 class="section-title">One Plugin. Two Ways to Fly.</h2>
         <p class="section-subtitle">
           Whether you want a native 3D cockpit tablet display or an interactive touch experience on your iPad at your desk, AlphaFloor EFB delivers both simultaneously.
@@ -271,10 +271,10 @@ const carouselSlides = [
   <section class="section apps-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag green">Modular Avionics Suite</span>
-        <h2 class="section-title">Everything an Airbus Captain Needs</h2>
+        <span class="section-tag green">Complete EFB Suite</span>
+        <h2 class="section-title">Everything you Need</h2>
         <p class="section-subtitle">
-          Engineered to match real airline fly-by-wire Electronic Flight Bags with deep dataref interaction.
+          Designed for flight simmers, bringing your essential flight planning, performance tools, and aircraft controls into one unified EFB.
         </p>
       </div>
 
@@ -284,7 +284,7 @@ const carouselSlides = [
           <div class="app-card-icon">⚡</div>
           <h3 class="app-card-title">Takeoff & Landing Performance</h3>
           <p class="app-card-desc">
-            Accurate Airbus performance calculation engines. Computes optimal flexible temperature, flap configuration (CONF 1+F / CONF 2 / CONF 3), V1, VR, V2 speeds, and required stopping distance based on runway condition, wind, slope, and temperature.
+            Accurate Airbus performance calculation engines. Computes optimal flexible temperature, flap configuration (CONF 1+F / CONF 2 / CONF 3), V1, VR, V2 speeds, and required stopping distance based on runway condition, wind, and temperature.
           </p>
           <span class="app-card-tag">FMGS MCDU Scratchpad Sync</span>
         </div>
@@ -294,7 +294,7 @@ const carouselSlides = [
           <div class="app-card-icon">⚖️</div>
           <h3 class="app-card-title">Weight, Balance & CG Envelope</h3>
           <p class="app-card-desc">
-            Interactive visual cabin layout and cargo hold visualizer. Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram showing Zero Fuel Weight CG and Takeoff Weight CG limits.
+            Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram showing Zero Fuel Weight CG and Takeoff Weight CG limits.
           </p>
           <span class="app-card-tag">Direct ToLiss Payload Injection</span>
         </div>
@@ -314,7 +314,7 @@ const carouselSlides = [
           <div class="app-card-icon">🗺️</div>
           <h3 class="app-card-title">Interactive Moving Map</h3>
           <p class="app-card-desc">
-            High-resolution moving map with live aircraft position, heading vector, flight plan route line, airport runway layouts, and taxiway diagrams. Smooth 60 FPS panning with touch gestures.
+            High-resolution moving map with live aircraft position, heading vector, flight plan route line, airport runway layouts, and taxiway diagrams.
           </p>
           <span class="app-card-tag">Taxi & Flight Path Tracking</span>
         </div>
@@ -324,92 +324,20 @@ const carouselSlides = [
           <div class="app-card-icon">📈</div>
           <h3 class="app-card-title">Navigraph & PDF Documents</h3>
           <p class="app-card-desc">
-            Seamless Navigraph Charts integration with automatic departure, arrival, and approach procedure matching. Built-in high-performance PDF engine to read company manuals, SOPs, and airport charts.
+            Seamless Navigraph Charts integration. Built-in PDF reader to display company manuals, SOPs, and airport charts.
           </p>
           <span class="app-card-tag">Navigraph & Custom PDF Support</span>
         </div>
 
-        <!-- App 6: Aircraft Controls & Checklists -->
+        <!-- App 6: Ground Services & Checklists -->
         <div class="app-card glass-panel">
           <div class="app-card-icon">🚪</div>
-          <h3 class="app-card-title">Ground Services & SOP Checklists</h3>
+          <h3 class="app-card-title">Ground Services & Checklists</h3>
           <p class="app-card-desc">
-            Control passenger doors, cargo doors, ground power units (GPU), high-pressure air, wheel chocks, and fueling directly from the tablet. Includes interactive normal and abnormal Airbus checklists.
+            Control passenger doors, cargo doors, ground power units (GPU), high-pressure air, and wheel chocks directly from the tablet. Includes interactive normal Airbus checklists.
           </p>
-          <span class="app-card-tag">Ground Services & Airbus SOPs</span>
+          <span class="app-card-tag">Ground Services & Checklists</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison Table -->
-  <section class="section" id="compare">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag amber">Comparison Matrix</span>
-        <h2 class="section-title">Standard Sim Setup vs AlphaFloor EFB</h2>
-        <p class="section-subtitle">
-          See why AlphaFloor EFB is the ultimate upgrade for your X-Plane 12 airliner cockpit.
-        </p>
-      </div>
-
-      <div class="comparison-wrapper glass-panel">
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th class="feature-col">Feature</th>
-              <th class="standard-col">Standard Setup</th>
-              <th class="alphafloor-col">AlphaFloor EFB</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>3D Virtual Cockpit Tablet Display</td>
-              <td><span class="check-partial">~</span> Basic text / limited</td>
-              <td><span class="check-yes highlight">✓</span> Full glassmorphic Airbus interface</td>
-            </tr>
-            <tr>
-              <td>External Tablet Support (iPad / Android / Phone)</td>
-              <td><span class="check-no">✕</span> Separate window only / 3rd-party tool</td>
-              <td><span class="check-yes highlight">✓</span> Instant browser access over home Wi-Fi</td>
-            </tr>
-            <tr>
-              <td>Deep ToLiss Fleet Integration</td>
-              <td><span class="check-no">✕</span> Manual typing in FMGS</td>
-              <td><span class="check-yes highlight">✓</span> 1-Click scratchpad sync, fuel, doors, payload</td>
-            </tr>
-            <tr>
-              <td>Takeoff & Landing Performance Calculators</td>
-              <td><span class="check-no">✕</span> External calculators / tables</td>
-              <td><span class="check-yes highlight">✓</span> Built-in flex temp, V-speeds & stopping limits</td>
-            </tr>
-            <tr>
-              <td>Visual Weight & Balance with Dynamic CG</td>
-              <td><span class="check-no">✕</span> Static text menus</td>
-              <td><span class="check-yes highlight">✓</span> Interactive cabin seating & dynamic CG envelope</td>
-            </tr>
-            <tr>
-              <td>SimBrief Flight Plan Integration</td>
-              <td><span class="check-partial">~</span> Raw text / manual entry</td>
-              <td><span class="check-yes highlight">✓</span> Rich interactive OFP with route map & stats</td>
-            </tr>
-            <tr>
-              <td>Interactive Airbus SOP Checklists</td>
-              <td><span class="check-partial">~</span> Paper or static PDF</td>
-              <td><span class="check-yes highlight">✓</span> Interactive checkable items with smart state</td>
-            </tr>
-            <tr>
-              <td>Navigraph & Airport Charts</td>
-              <td><span class="check-partial">~</span> Alt-tabbing to desktop</td>
-              <td><span class="check-yes highlight">✓</span> In-cockpit & on tablet with pinch-to-zoom</td>
-            </tr>
-            <tr>
-              <td>Framerate Impact</td>
-              <td><span class="check-partial">~</span> Variable</td>
-              <td><span class="check-yes highlight">✓</span> Zero micro-stutters, fluid 60 FPS display</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </section>
@@ -440,7 +368,7 @@ const carouselSlides = [
           <ul class="plan-perks">
             <li>
               <span class="perk-icon">✓</span>
-              <span>All EFB modular apps unlocked</span>
+              <span>All EFB apps unlocked</span>
             </li>
             <li>
               <span class="perk-icon">✓</span>
@@ -499,7 +427,7 @@ const carouselSlides = [
             </li>
             <li>
               <span class="perk-icon pro">✓</span>
-              <span><strong>Downloadable license file (<code class="code-token">AlphaFloorEFB.lic</code>)</strong> for easy drag-and-drop activation</span>
+              <span><strong>Downloadable license file (<code class="code-token">AlphaFloorEFB.lic</code>)</strong> for easy activation</span>
             </li>
             <li>
               <span class="perk-icon pro">✓</span>
@@ -507,7 +435,7 @@ const carouselSlides = [
             </li>
             <li>
               <span class="perk-icon pro">✓</span>
-              <span><strong>Reliable offline validation</strong> — fly anywhere without internet required</span>
+              <span><strong>Offline validation</strong> — fly anywhere without internet required</span>
             </li>
             <li>
               <span class="perk-icon pro">✓</span>
@@ -583,7 +511,7 @@ const carouselSlides = [
         <span class="section-tag green">Available Now</span>
         <h2 class="section-title">Download & Latest Release</h2>
         <p class="section-subtitle">
-          Download the latest build for X-Plane 12 with universal platform support. Includes a 7-day full-featured free trial.
+          Download the latest build for X-Plane 12. Includes a 7-day full-featured free trial.
         </p>
       </div>
 
@@ -624,7 +552,7 @@ const carouselSlides = [
           </div>
 
           <div class="download-platforms-col">
-            <span class="platform-title">INCLUDED IN UNIVERSAL ARCHIVE:</span>
+            <span class="platform-title">INCLUDED IN ARCHIVE:</span>
             <div class="platform-tags">
               <span class="platform-badge">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.899"/></svg>
@@ -640,7 +568,7 @@ const carouselSlides = [
               </span>
             </div>
             <div class="compat-indicator">
-              <span>✈ Compatible with X-Plane 12.00+ and ToLiss Airbus fleet</span>
+              <span>✈ Compatible with X-Plane 12.4+ and ToLiss Airbus fleet</span>
             </div>
           </div>
         </div>
@@ -699,7 +627,7 @@ const carouselSlides = [
 
         <div class="step-card glass-panel">
           <div class="step-num">03</div>
-          <h3 class="step-title">Connect Your Tablet</h3>
+          <h3 class="step-title">(Optional) Connect Your Tablet</h3>
           <p class="step-desc">
             Open the Settings tab on the EFB to see your local LAN URL (e.g. <code class="code-token">http://192.168.1.42:8080</code>). Type it into Safari on your iPad to fly with external touch controls!
           </p>
@@ -740,7 +668,7 @@ const carouselSlides = [
         <div class="faq-item glass-panel">
           <h3 class="faq-question">How does AlphaFloor EFB appear in the 3D cockpit?</h3>
           <p class="faq-answer">
-            AlphaFloor EFB powers the 3D pilot tablet screens inside the cockpit automatically. You don't need to configure aircraft geometry or install separate display drivers—it is ready to fly as soon as you load any supported aircraft.
+            AlphaFloor EFB powers the 3D pilot tablet screens inside the cockpit automatically. You don't need to configure anything in the aircraft—it is ready to fly as soon as you load any supported aircraft.
           </p>
         </div>
 
@@ -754,7 +682,7 @@ const carouselSlides = [
         <div class="faq-item glass-panel">
           <h3 class="faq-question">Do I need an iPad or external tablet to use it?</h3>
           <p class="faq-answer">
-            No! You can use AlphaFloor EFB entirely inside the X-Plane 12 3D virtual cockpit using your mouse. However, if you have an iPad, Android tablet, phone, or second PC monitor on the same Wi-Fi network, you can access the web EFB simultaneously with fluid touch gestures.
+            No! You can use AlphaFloor EFB entirely inside the X-Plane 12 3D virtual cockpit using your mouse. However, if you have an iPad, Android tablet, phone, or second PC monitor on the same network, you can access the web EFB simultaneously.
           </p>
         </div>
 
