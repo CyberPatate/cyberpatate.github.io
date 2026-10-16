@@ -4,6 +4,11 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
+
+const isEfbDocsActive = currentPath.startsWith('/alphafloorefb/docs');
+const isEfbActive = (currentPath === '/alphafloorefb/' || currentPath === '/alphafloorefb') && !isEfbDocsActive;
+const isProductsActive = isEfbActive || (currentPath.startsWith('/alphafloorefb/checkout') && !isEfbDocsActive);
+const isDocsActive = isEfbDocsActive;
 ---
 
 <header class="navbar-wrapper">
@@ -19,17 +24,79 @@ const { currentPath = '/' } = Astro.props;
 
       <div class="nav-links">
         <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
-        <a href="/alphafloorefb/" class={`nav-link ${currentPath === '/alphafloorefb/' || currentPath === '/alphafloorefb' ? 'active' : ''}`}>
-          <span>AlphaFloor EFB</span>
-          <span class="efb-tag">11.99€</span>
-        </a>
-        <a href="/alphafloorefb/docs/" class={`nav-link ${currentPath.startsWith('/alphafloorefb/docs') ? 'active' : ''}`}>Docs</a>
-        <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="nav-link">
-          <span>XLauncher</span>
-          <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </a>
+
+        <!-- Products Dropdown -->
+        <div class="nav-dropdown" data-dropdown="products">
+          <button 
+            type="button" 
+            class={`dropdown-trigger ${isProductsActive ? 'active' : ''}`}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>Products</span>
+            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a 
+              href="/alphafloorefb/" 
+              class={`dropdown-item ${isEfbActive ? 'active' : ''}`}
+              role="menuitem"
+            >
+              <span>AlphaFloor EFB</span>
+            </a>
+            <a 
+              href="https://xlauncher.app" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="dropdown-item"
+              role="menuitem"
+            >
+              <span>XLauncher</span>
+              <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Documentation Dropdown -->
+        <div class="nav-dropdown" data-dropdown="docs">
+          <button 
+            type="button" 
+            class={`dropdown-trigger ${isDocsActive ? 'active' : ''}`}
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <span>Documentation</span>
+            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu" role="menu">
+            <a 
+              href="/alphafloorefb/docs/" 
+              class={`dropdown-item ${isDocsActive ? 'active' : ''}`}
+              role="menuitem"
+            >
+              <span>AlphaFloor EFB</span>
+            </a>
+            <a 
+              href="https://xlauncher.readthedocs.io/en/v2.2.0/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="dropdown-item"
+              role="menuitem"
+            >
+              <span>XLauncher</span>
+              <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
         <a href="/#about" class="nav-link">About</a>
       </div>
 
@@ -45,9 +112,6 @@ const { currentPath = '/' } = Astro.props;
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
           </svg>
         </a>
-        <a href="/alphafloorefb/" class="btn btn-primary btn-sm">
-          <span>AlphaFloor EFB</span>
-        </a>
       </div>
 
       <button class="mobile-toggle" aria-label="Toggle navigation menu" id="mobile-toggle">
@@ -59,11 +123,50 @@ const { currentPath = '/' } = Astro.props;
   </div>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/" class="mobile-link">Home</a>
-    <a href="/alphafloorefb/" class="mobile-link">AlphaFloor EFB (11.99€)</a>
-    <a href="/alphafloorefb/docs/" class="mobile-link">AlphaFloor EFB Docs</a>
-    <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="mobile-link">XLauncher Pro</a>
+    <a href="/" class={`mobile-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
+
+    <div class={`mobile-group ${isProductsActive ? 'open' : ''}`}>
+      <button class="mobile-group-toggle" type="button" aria-expanded={isProductsActive ? 'true' : 'false'}>
+        <span>Products</span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="mobile-group-items">
+        <a href="/alphafloorefb/" class={`mobile-sublink ${isEfbActive ? 'active' : ''}`}>
+          AlphaFloor EFB
+        </a>
+        <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="mobile-sublink">
+          <span>XLauncher</span>
+          <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class={`mobile-group ${isDocsActive ? 'open' : ''}`}>
+      <button class="mobile-group-toggle" type="button" aria-expanded={isDocsActive ? 'true' : 'false'}>
+        <span>Documentation</span>
+        <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div class="mobile-group-items">
+        <a href="/alphafloorefb/docs/" class={`mobile-sublink ${isDocsActive ? 'active' : ''}`}>
+          AlphaFloor EFB
+        </a>
+        <a href="https://xlauncher.readthedocs.io/en/v2.2.0/" target="_blank" rel="noopener noreferrer" class="mobile-sublink">
+          <span>XLauncher</span>
+          <svg class="external-icon" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
     <a href="/#about" class="mobile-link">About the Studio</a>
+
     <div class="mobile-buttons">
       <a href="/alphafloorefb/" class="btn btn-primary">Discover AlphaFloor EFB</a>
       <a href="https://xlauncher.app" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit XLauncher.app</a>
@@ -144,6 +247,7 @@ const { currentPath = '/' } = Astro.props;
     align-items: center;
     gap: 0.45rem;
     transition: color var(--transition-fast);
+    text-decoration: none;
   }
 
   .nav-link:hover,
@@ -153,16 +257,135 @@ const { currentPath = '/' } = Astro.props;
 
   .nav-link.active {
     font-weight: 600;
+    color: var(--hud-cyan);
   }
 
-  .efb-tag {
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #0f172a;
-    background: var(--hud-cyan);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  /* Desktop Dropdowns */
+  .nav-dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .dropdown-trigger {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color var(--transition-fast);
+  }
+
+  .dropdown-trigger:hover,
+  .dropdown-trigger.active,
+  .nav-dropdown:hover .dropdown-trigger,
+  .nav-dropdown.is-open .dropdown-trigger {
+    color: var(--text-primary);
+  }
+
+  .dropdown-trigger.active {
+    font-weight: 600;
+    color: var(--hud-cyan);
+  }
+
+  .chevron-icon {
+    transition: transform var(--transition-normal), color var(--transition-fast);
+    opacity: 0.65;
+  }
+
+  .nav-dropdown:hover .chevron-icon,
+  .nav-dropdown:focus-within .chevron-icon,
+  .nav-dropdown.is-open .chevron-icon {
+    transform: rotate(180deg);
+    opacity: 1;
+    color: var(--hud-cyan);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 200px;
+    padding: 0.45rem;
+    background: rgba(13, 18, 31, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.2s;
+    z-index: 1010;
+  }
+
+  /* Invisible bridge to prevent mouse leave gap */
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+  }
+
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu,
+  .nav-dropdown.is-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.65rem 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .dropdown-item:hover {
+    color: var(--text-primary);
+    background: rgba(56, 189, 248, 0.1);
+  }
+
+  .dropdown-item.active {
+    color: var(--hud-cyan);
+    font-weight: 600;
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .dropdown-item .external-icon {
+    opacity: 0.6;
+    transition: transform var(--transition-fast), opacity var(--transition-fast), color var(--transition-fast);
+  }
+
+  .dropdown-item:hover .external-icon {
+    opacity: 1;
+    color: var(--hud-cyan);
+    transform: translate(1px, -1px);
   }
 
   .external-icon {
@@ -197,6 +420,7 @@ const { currentPath = '/' } = Astro.props;
     padding: 0.5rem;
   }
 
+  /* Mobile Menu Styles */
   .mobile-menu {
     display: none;
     flex-direction: column;
@@ -214,6 +438,70 @@ const { currentPath = '/' } = Astro.props;
     font-size: 1.05rem;
     color: var(--text-primary);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+  }
+
+  .mobile-link.active {
+    color: var(--hud-cyan);
+    font-weight: 600;
+  }
+
+  .mobile-group {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-group-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .mobile-group.open .mobile-group-toggle {
+    color: var(--hud-cyan);
+  }
+
+  .mobile-group.open .mobile-group-toggle .chevron-icon {
+    transform: rotate(180deg);
+    color: var(--hud-cyan);
+    opacity: 1;
+  }
+
+  .mobile-group-items {
+    display: none;
+    flex-direction: column;
+    padding-left: 0.85rem;
+    padding-bottom: 0.6rem;
+    gap: 0.25rem;
+  }
+
+  .mobile-group.open .mobile-group-items {
+    display: flex;
+  }
+
+  .mobile-sublink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .mobile-sublink:hover,
+  .mobile-sublink.active {
+    color: var(--hud-cyan);
   }
 
   .mobile-buttons {
@@ -234,6 +522,7 @@ const { currentPath = '/' } = Astro.props;
 </style>
 
 <script>
+  // Mobile menu toggle
   const toggleBtn = document.getElementById('mobile-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -246,5 +535,54 @@ const { currentPath = '/' } = Astro.props;
     link.addEventListener('click', () => {
       mobileMenu?.classList.remove('active');
     });
+  });
+
+  // Mobile accordion toggle
+  const mobileGroupToggles = mobileMenu?.querySelectorAll('.mobile-group-toggle');
+  mobileGroupToggles?.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.mobile-group');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      group?.classList.toggle('open');
+    });
+  });
+
+  // Desktop dropdown accessibility & click support
+  const navDropdowns = document.querySelectorAll<HTMLElement>('.nav-dropdown');
+  navDropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector<HTMLButtonElement>('.dropdown-trigger');
+    
+    trigger?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('is-open');
+      navDropdowns.forEach(d => {
+        if (d !== dropdown) {
+          d.classList.remove('is-open');
+          d.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+        }
+      });
+      dropdown.classList.toggle('is-open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // Close dropdowns on outside click or Escape
+  document.addEventListener('click', (e) => {
+    navDropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target as Node)) {
+        dropdown.classList.remove('is-open');
+        dropdown.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      navDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('is-open');
+        dropdown.querySelector('.dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 </script>
