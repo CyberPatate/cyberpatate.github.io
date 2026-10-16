@@ -74,11 +74,12 @@ fi
 pandoc "${DOCS[@]}" \
     --output="${OUTPUT_PDF}" \
     --pdf-engine="${PDF_ENGINE}" \
+    --resource-path="${SCRIPT_DIR}:${SCRIPT_DIR}/apps" \
     --toc \
     --toc-depth=2 \
     --number-sections \
     --metadata title="AlphaFloor EFB Pilot User Guide" \
-    --metadata subtitle="Modern Electronic Flight Bag for Airbus in X-Plane 12" \
+    --metadata subtitle="Modern Electronic Flight Bag for ToLiss Aircrafts in X-Plane 12" \
     --metadata author="CyberPatate" \
     --metadata date="$(date +'%B %Y')" \
     "${EXTRA_ARGS[@]}"
