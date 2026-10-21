@@ -728,12 +728,16 @@
 <p>To perform a takeoff calculation:</p>
 <ol>
 <li>Enter your departure airport and select the active runway.</li>
-<li>Verify atmospheric conditions (wind, temperature, barometric pressure).</li>
-<li>Confirm aircraft configuration (takeoff weight, packs, anti-ice).</li>
+<li>Verify atmospheric conditions (wind, temperature, barometric pressure in hPa or inHg).</li>
+<li>Confirm aircraft configuration (takeoff weight in Tonnes or 1000 lbs according to your configured unit system in Settings, packs, anti-ice).</li>
 <li>Tap <strong>Compute</strong>.</li>
 <li>Review the resulting FLEX temperature, V-speeds, and trim settings.</li>
-<li>Transfer values directly into the aircraft FMGS.</li>
+<li>Tap <strong>Insert in MCDU</strong> to transfer computed V-speeds (V1, VR, V2) and FLEX temperature directly into the aircraft FMGS.</li>
 </ol>
+<blockquote>
+<p>[!NOTE]
+Due to ToLiss aircraft API limitations, the takeoff flap and pitch trim setting (FLAPS/THS, e.g. <code>1/UP0.5</code>) cannot be inserted automatically via datarefs. You must enter this figure manually into line select key 3R on the MCDU PERF TAKEOFF page.</p>
+</blockquote>
 
 
 
