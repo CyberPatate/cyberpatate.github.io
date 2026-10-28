@@ -1,0 +1,7 @@
+CHANGELOG.md|2876034478
+config.json|3146682258
+user_checklists.json.example|2725085705
+lin_x64/AlphaFloorEFB.xpl|308165803
+win_x64/AlphaFloorEFB.xpl|1199556886
+mac_x64/AlphaFloorEFB.xpl|4070543459
+user-guide.pdf|489604992
