@@ -6,13 +6,6 @@ const release = await getLatestRelease();
 
 const carouselSlides = [
   {
-    id: 'in-cockpit',
-    title: 'In-Cockpit Flight Deck View',
-    caption: 'Seamlessly mounted on the ToLiss EFB with responsive touch and 3D cockpit integration',
-    image: '/images/alphafloorefb/InCockpitView.png',
-    tab: 'In Cockpit',
-  },
-  {
     id: 'home',
     title: 'Home Screen & Launcher',
     caption: 'Modern EFB launcher',
@@ -67,6 +60,13 @@ const carouselSlides = [
     caption: 'In-cockpit PDF reader for Quick Reference Handbooks, airline SOPs, and company flight manuals',
     image: '/images/alphafloorefb/Documents.png',
     tab: 'Documents',
+  },
+  {
+    id: 'browser',
+    title: 'Embedded Web Browser',
+    caption: 'Browser with tabs and bookmarks support',
+    image: '/images/alphafloorefb/Browser.png',
+    tab: 'Browser',
   },
 ];
 ---
@@ -169,8 +169,8 @@ const carouselSlides = [
                     alt={slide.title}
                     loading={index === 0 ? 'eager' : 'lazy'}
                     decoding="async"
-                    width="1792"
-                    height="1170"
+                    width="1477"
+                    height="920"
                   />
                 </div>
                 <div class="carousel-caption">
