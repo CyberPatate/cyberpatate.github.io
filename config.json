@@ -1,0 +1,116 @@
+{
+  "fleet": {
+    "A319": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A320": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A320Neo": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A321": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A321Neo": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A330Neo": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "A340_600": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    },
+    "default": {
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "t_split": 0.19008,
+      "enabled": true
+    }
+  }
+}
