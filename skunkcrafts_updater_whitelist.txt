@@ -1,0 +1,10 @@
+CHANGELOG.md|4162705619
+config.json|2726551517
+user_checklists.json.example|2725085705
+objects/AlphaFloor_Tablet.png|4055453571
+objects/CREDITS|2905281549
+objects/AlphaFloor_Tablet.obj|1942243026
+lin_x64/AlphaFloorEFB.xpl|2770962006
+win_x64/AlphaFloorEFB.xpl|1380356468
+mac_x64/AlphaFloorEFB.xpl|3131473451
+user-guide.pdf|1685986440
