@@ -80,7 +80,7 @@ pandoc "${DOCS[@]}" \
     --toc-depth=2 \
     --number-sections \
     --metadata title="AlphaFloor EFB Pilot User Guide" \
-    --metadata subtitle="Modern Electronic Flight Bag for ToLiss Aircrafts in X-Plane 12" \
+    --metadata subtitle="Universal Electronic Flight Bag for X-Plane 12" \
     --metadata author="CyberPatate" \
     --metadata date="$(date +'%B %Y')" \
     "${EXTRA_ARGS[@]}"
