@@ -542,10 +542,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#seatmap" class="md-nav__link">
+  <a href="#operating-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seatmap
+        Operating Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extended-airframe-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Extended Airframe Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-universal-aircraft-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Universal Aircraft Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-seat-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Seat Map
       
     </span>
   </a>
@@ -818,10 +868,60 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#seatmap" class="md-nav__link">
+  <a href="#operating-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Seatmap
+        Operating Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operating Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extended-airframe-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Extended Airframe Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-universal-aircraft-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Universal Aircraft Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-seat-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Seat Map
       
     </span>
   </a>
@@ -846,18 +946,33 @@
 
 
 <h1 id="weight-balance">Weight &amp; Balance<a class="headerlink" href="#weight-balance" title="Permanent link">&para;</a></h1>
+<p>The <strong>Weight &amp; Balance</strong> application manages aircraft passenger distribution, cargo hold loading, fuel uplift, and Center of Gravity (CG) envelope calculations.</p>
 <p><img alt="Weight &amp; Balance" src="../../assets/images/WeightBalance.png" /></p>
-<p>To configure the aircraft payload and balance:</p>
+<hr />
+<h2 id="operating-modes">Operating Modes<a class="headerlink" href="#operating-modes" title="Permanent link">&para;</a></h2>
+<h3 id="1-extended-airframe-profiles">1. Extended Airframe Profiles<a class="headerlink" href="#1-extended-airframe-profiles" title="Permanent link">&para;</a></h3>
+<p>For aircraft with dedicated airframe profiles (including Airbus A319, A320, A321, A330, and A340):
+* <strong>Interactive Cabin Seat Map</strong>: Board passengers by cabin zones or individually using the visual seat map.
+* <strong>Cargo Hold Distribution</strong>: Distribute freight across forward, aft, and bulk compartments.
+* <strong>Dynamic CG Flight Envelope</strong>: Real-time Center of Gravity (% MAC) calculations plotted against certified forward and aft envelope limits for Zero Fuel Weight (ZFW), Takeoff Weight (TOW), and Landing Weight (LAW).
+* <strong>THS Pitch Trim Calculation</strong>: Computes the exact stabilizer pitch trim setting (e.g., <code>UP 1.2</code> or <code>DN 0.5</code>) based on computed TOW CG.</p>
+<h3 id="2-universal-aircraft-mode">2. Universal Aircraft Mode<a class="headerlink" href="#2-universal-aircraft-mode" title="Permanent link">&para;</a></h3>
+<p>For all other X-Plane 12 aircraft:
+* Utilizes standard X-Plane payload stations and fuel tanks.
+* Allows reviewing total payload, passenger weight, cargo, and fuel distribution.
+* Enables one-click payload and fuel loading from SimBrief dispatch plans.</p>
+<hr />
+<h2 id="configuration-workflow">Configuration Workflow<a class="headerlink" href="#configuration-workflow" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select your preferred unit system (<strong>KG</strong> or <strong>LBS</strong>) using the header toggle. The app automatically defaults to the system specified in your active SimBrief OFP, or the unit system configured in Settings if no OFP is active.</li>
-<li>Adjust passenger number and cabin distribution.</li>
-<li>Distribute freight across forward and aft cargo compartments (in kg or lbs).</li>
-<li>Set your required fuel quantity. When clicking <strong>Load SimBrief</strong>, planned fuel and cargo are automatically converted to kilograms before uplifting to the aircraft.</li>
-<li>Verify that the Center of Gravity (% MAC) remains within certified operational limits on the CG envelope chart.</li>
-<li>Tap <strong>Apply to Aircraft</strong> to synchronize values directly into the simulator.</li>
+<li><strong>Unit System Selection</strong>: Select your preferred unit system (<strong>KG</strong> or <strong>LBS</strong>) using the header toggle. The app automatically defaults to the system specified in your active SimBrief OFP, or the default configured in Settings.</li>
+<li><strong>Passenger &amp; Cargo Loading</strong>: Adjust passenger count, cabin distribution, and cargo weights. When clicking <strong>Load SimBrief</strong>, planned fuel and cargo figures are imported and converted automatically.</li>
+<li><strong>Fuel Uplift</strong>: Set the desired fuel quantity across available fuel tanks.</li>
+<li><strong>Envelope Verification</strong>: Verify that the calculated Zero Fuel Weight CG and Takeoff Weight CG (% MAC) remain securely within certified operational limits.</li>
+<li><strong>Apply to Aircraft</strong>: Tap <strong>Apply to Aircraft</strong> to synchronize fuel and payload weights directly into the simulator.</li>
 </ol>
-<h2 id="seatmap">Seatmap<a class="headerlink" href="#seatmap" title="Permanent link">&para;</a></h2>
-<p>Dynamically change the passenger distribution in the aircraft using the interactive seatmap:</p>
+<hr />
+<h2 id="interactive-seat-map">Interactive Seat Map<a class="headerlink" href="#interactive-seat-map" title="Permanent link">&para;</a></h2>
+<p>For supported aircraft, tap the seat map toggle to inspect and adjust passenger seating arrangements dynamically:</p>
 <p><img alt="Interactive Seatmap" src="../../assets/images/WnBSeatMap.png" /></p>
 
 

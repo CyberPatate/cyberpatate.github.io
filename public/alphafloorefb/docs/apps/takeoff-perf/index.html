@@ -435,6 +435,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Takeoff Performance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -451,6 +469,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#takeoff-calculation-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeoff Calculation Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -763,6 +811,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#takeoff-calculation-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeoff Calculation Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -779,20 +846,25 @@
 
 
 <h1 id="takeoff-performance-calculator">Takeoff Performance Calculator<a class="headerlink" href="#takeoff-performance-calculator" title="Permanent link">&para;</a></h1>
-<p>The <strong>Takeoff Performance</strong> application computes departure performance numbers for your flight.</p>
+<p>The <strong>Takeoff Performance</strong> application computes precise departure performance figures, optimal thrust settings, and reference takeoff speeds.</p>
 <p><img alt="Takeoff Performance Calculator" src="../../assets/images/TakeOffPerf.png" /></p>
-<p>To perform a takeoff calculation:</p>
+<hr />
+<h2 id="takeoff-calculation-workflow">Takeoff Calculation Workflow<a class="headerlink" href="#takeoff-calculation-workflow" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Enter your departure airport and select the active runway.</li>
-<li>Verify atmospheric conditions (wind, temperature, barometric pressure in hPa or inHg).</li>
-<li>Confirm aircraft configuration (takeoff weight in Tonnes or 1000 lbs according to your configured unit system in Settings, packs, anti-ice).</li>
-<li>Tap <strong>Compute</strong>.</li>
-<li>Review the resulting FLEX temperature, V-speeds, and trim settings.</li>
-<li>Tap <strong>Insert in MCDU</strong> to transfer computed V-speeds (V1, VR, V2) and FLEX temperature directly into the aircraft FMGS.</li>
+<li><strong>Airport &amp; Runway Selection</strong>: Enter the 4-letter ICAO code for your departure aerodrome. Select the active runway or designated intersection departure. Available runway lengths (TORA, TODA, ASDA) and elevation update automatically.</li>
+<li><strong>Atmospheric Conditions</strong>: Verify surface wind direction/speed, outside air temperature (OAT), and barometric altimeter setting (in hPa or inHg).</li>
+<li><strong>Aircraft Configuration</strong>: Confirm takeoff gross weight (in Tonnes or 1000 lbs), air conditioning packs status (ON/OFF), anti-ice configuration (ENG or ENG+WING), and desired flap setting.</li>
+<li><strong>Compute Performance</strong>: Tap <strong>Compute</strong> to execute the calculation.</li>
+<li><strong>Review Results</strong>:</li>
+<li><strong>Assumed / FLEX Temperature</strong>: Maximum permissible thrust reduction temperature.</li>
+<li><strong>V-Speeds</strong>: Decision speed ($V_1$), Rotation speed ($V_R$), and Engine-out safety speed ($V_2$).</li>
+<li><strong>Trim &amp; Speeds</strong>: Recommended pitch trim (THS) and clean climb speed (Green Dot).</li>
+<li><strong>Runway Margins</strong>: Required takeoff roll distance and stop margin remaining.</li>
+<li><strong>MCDU / FMGS Insertion</strong>: Tap <strong>Insert in MCDU</strong> to transfer computed V-speeds and FLEX temperature directly into the aircraft FMGS scratchpad on supported aircraft.</li>
 </ol>
 <blockquote>
 <p>[!NOTE]
-Due to aircraft FMGS dataref limitations, the takeoff flap and pitch trim setting (FLAPS/THS, e.g. <code>1/UP0.5</code>) cannot be inserted automatically via datarefs. You must enter this figure manually into line select key 3R on the MCDU PERF TAKEOFF page.</p>
+Due to aircraft FMGS dataref limitations, the takeoff flap and pitch trim setting (FLAPS/THS, e.g. <code>1/UP0.5</code>) cannot be inserted automatically via datarefs. Enter this figure manually into line select key 3R on the MCDU PERF TAKEOFF page.</p>
 </blockquote>
 
 

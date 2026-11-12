@@ -463,6 +463,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Landing Performance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -479,6 +497,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#landing-calculation-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Landing Calculation Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -763,6 +811,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#landing-calculation-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Landing Calculation Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -779,16 +846,22 @@
 
 
 <h1 id="landing-performance-calculator">Landing Performance Calculator<a class="headerlink" href="#landing-performance-calculator" title="Permanent link">&para;</a></h1>
-<p>The <strong>Landing Performance</strong> application calculates landing distances, approach speeds, and stopping margins.</p>
+<p>The <strong>Landing Performance</strong> application calculates approach reference speeds, stopping distances, factoring margins, and engine-out go-around climb gradients for arrival planning.</p>
 <p><img alt="Landing Performance Calculator" src="../../assets/images/LandingPerf.png" /></p>
-<p>Prior to descent (during the arrival briefing):</p>
+<hr />
+<h2 id="landing-calculation-workflow">Landing Calculation Workflow<a class="headerlink" href="#landing-calculation-workflow" title="Permanent link">&para;</a></h2>
+<p>Prior to descent (during the descent and arrival briefing):</p>
 <ol>
-<li>Select your destination or diversion airport and landing runway.</li>
-<li>Enter current runway surface conditions, barometric pressure (hPa or inHg), and reported winds.</li>
-<li>Confirm landing gross weight (in Tonnes or 1000 lbs according to your configured unit system in Settings). When syncing with SimBrief, estimated landing weights from LBS flight plans are converted automatically.</li>
-<li>Choose your desired flap configuration and braking method.</li>
-<li>Tap <strong>Compute</strong>.</li>
-<li>Review the resulting approach speeds, stopping distance, and runway remaining.</li>
+<li><strong>Airport &amp; Runway Selection</strong>: Select your planned destination or diversion aerodrome and landing runway. Runway length, slope, and elevation are loaded automatically.</li>
+<li><strong>Weather &amp; Runway Surface Conditions</strong>: Enter surface wind, temperature, barometric pressure (in hPa or inHg), and runway condition (Dry, Good, Medium, Poor).</li>
+<li><strong>Aircraft Landing Weight</strong>: Confirm estimated landing weight (in Tonnes or 1000 lbs according to your configured unit system in Settings). When syncing with SimBrief, planned landing weights from LBS or KG flight plans are imported seamlessly.</li>
+<li><strong>Flaps &amp; Deceleration Devices</strong>: Select landing flap setting, reverse thrust mode, and wheel braking method (Autobrake Low/Medium/Max or Manual).</li>
+<li><strong>Compute Performance</strong>: Tap <strong>Compute</strong> to evaluate arrival performance.</li>
+<li><strong>Review Results</strong>:</li>
+<li><strong>Approach Speed ($V_{APP}$)</strong>: Target approach speed including wind correction.</li>
+<li><strong>Landing Distances</strong>: Operational landing distance (unfactored) and dispatch factored landing distance.</li>
+<li><strong>Runway Margin</strong>: Visual stop margin indicator showing remaining runway beyond rollout.</li>
+<li><strong>Engine-Out Go-Around Gradient</strong>: Computes the single-engine missed approach climb gradient percentage to verify compliance with published missed approach procedure gradient requirements.</li>
 </ol>
 
 
