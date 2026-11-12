@@ -29,7 +29,7 @@ const carouselSlides = [
   {
     id: 'takeoff',
     title: 'Takeoff Performance Calculator',
-    caption: 'Airbus assumed FLEX temperature, V1/VR/V2 speeds, and direct ToLiss FMGS MCDU scratchpad sync',
+    caption: 'Assumed FLEX temperature, V1/VR/V2 speeds, and direct FMGS / MCDU scratchpad sync',
     image: '/images/alphafloorefb/TakeOffPerf.png',
     tab: 'Takeoff Perf',
   },
@@ -42,8 +42,8 @@ const carouselSlides = [
   },
   {
     id: 'checklists',
-    title: 'Interactive Airbus Checklists',
-    caption: 'Challenge-and-response operational checklists for all flight phases with custom JSON support',
+    title: 'Interactive Operational Checklists',
+    caption: 'Challenge-and-response operational checklists for airliner and GA flight phases with custom JSON support',
     image: '/images/alphafloorefb/Checklists.png',
     tab: 'Checklists',
   },
@@ -72,8 +72,8 @@ const carouselSlides = [
 ---
 
 <Layout
-  title="AlphaFloor EFB — Modern Electronic Flight Bag for ToLiss aircrafts for X-Plane 12"
-  description="Modern Electronic Flight Bag for ToLiss aircraft in X-Plane 12. Integrated into the 3D cockpit tablet and accessible from any iPad, tablet, or browser over local Wi-Fi. Optimized for the ToLiss aircraft fleet."
+  title="AlphaFloor EFB — Universal Electronic Flight Bag for X-Plane 12"
+  description="Universal Electronic Flight Bag for X-Plane 12. Integrated into 3D cockpit tablets, resizable 2D floating window, and accessible from any iPad, tablet, or browser over local Wi-Fi. Features deep airframe profiles for Airbus fleet, Cessna 172, and Diamond DA42."
   image="/images/alphafloorefb-icon.png"
 >
   <!-- Hero Section -->
@@ -82,16 +82,16 @@ const carouselSlides = [
       <div class="efb-hero-badge-wrap">
         <span class="section-tag">
           <img src="/images/alphafloorefb-icon.png" alt="AlphaFloor EFB" class="hero-badge-icon" width="22" height="22" />
-          <span>Electronic Flight Bag for ToLiss aircrafts · X-Plane 12</span>
+          <span>Universal Electronic Flight Bag · X-Plane 12</span>
         </span>
       </div>
 
       <h1 class="efb-hero-title">
-        The Modern Cockpit EFB for the <span class="gradient-text">ToLiss Airbus Fleet</span>
+        The Modern Universal EFB for <span class="gradient-text">X-Plane 12</span>
       </h1>
 
       <p class="efb-hero-subtitle">
-        Integrated seamlessly into your 3D cockpit tablet and accessible from your iPad, Android tablet, phone, or laptop over your local network.
+        Fly any aircraft in X-Plane 12 with a native 3D cockpit tablet, a resizable 2D floating popup window, and external tablet streaming to your iPad, Android tablet, phone, or laptop over Wi-Fi.
       </p>
 
       <div class="efb-hero-actions">
@@ -126,13 +126,17 @@ const carouselSlides = [
 
       <!-- Quick Aircraft Fleet Compatibility Pills -->
       <div class="fleet-strip">
-        <span class="fleet-label">OPTIMIZED FLEET:</span>
+        <span class="fleet-label">SUPPORTED AIRCRAFT:</span>
         <div class="fleet-tags">
           <span class="fleet-badge">ToLiss A319</span>
-          <span class="fleet-badge">ToLiss A320neo</span>
+          <span class="fleet-badge">ToLiss A320 / A320neo</span>
           <span class="fleet-badge">ToLiss A321 / XLR</span>
           <span class="fleet-badge">ToLiss A330-900</span>
           <span class="fleet-badge">ToLiss A340-600</span>
+          <span class="fleet-badge">Laminar Research A330-300</span>
+          <span class="fleet-badge">Aerobask Diamond DA42 NG</span>
+          <span class="fleet-badge">Airfoillabs & Laminar C172</span>
+          <span class="fleet-badge">Any X-Plane 12 Aircraft</span>
         </div>
       </div>
 
@@ -218,14 +222,14 @@ const carouselSlides = [
   <section class="section" id="features">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag cyan">Dual Display Technology</span>
-        <h2 class="section-title">One Plugin. Two Ways to Fly.</h2>
+        <span class="section-tag cyan">Display Technology</span>
+        <h2 class="section-title">One Plugin. Three Ways to Fly.</h2>
         <p class="section-subtitle">
-          Whether you want a native 3D cockpit tablet display or an interactive touch experience on your iPad at your desk, AlphaFloor EFB delivers both simultaneously.
+          Whether you prefer a native 3D cockpit tablet display, a resizable 2D floating popup window, or an interactive touch experience on your iPad at your desk, AlphaFloor EFB delivers all three simultaneously.
         </p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3">
         <!-- 3D Cockpit Display -->
         <div class="feature-card glass-panel">
           <div class="feature-icon cyan">
@@ -236,12 +240,31 @@ const carouselSlides = [
           <span class="telemetry-badge cyan">IN-COCKPIT 3D DISPLAY</span>
           <h3 class="feature-title">Native 3D Cockpit Integration</h3>
           <p class="feature-desc">
-            AlphaFloor EFB powers the pilot tablet screens right inside the 3D virtual cockpit. It displays crisp, high-resolution graphics and responsive controls without modifying any aircraft 3D model files.
+            Renders directly into 3D cockpit tablet displays and AviTab slots. For cockpits without built-in tablet meshes, AlphaFloor EFB injects a standalone 3D tablet model via the Avionics API.
           </p>
           <ul class="feature-bullet-list">
-            <li>Ready to fly out of the box: powers on automatically when loading your airliner</li>
-            <li>Intuitive in-cockpit mouse interaction with responsive buttons and sliders</li>
-            <li>Crisp, high-definition text rendering optimized for VR and desktop monitors</li>
+            <li>Native 3D mouse capture with responsive buttons and sliders</li>
+            <li>Crisp CEF rendering into panel texture atlas with pin-sharp text</li>
+            <li>Fullscreen tablet takeover and dual-mode overlay minimizing</li>
+          </ul>
+        </div>
+
+        <!-- 2D Floating Popup Window -->
+        <div class="feature-card glass-panel">
+          <div class="feature-icon green">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+          </div>
+          <span class="telemetry-badge green">UNIVERSAL 2D WINDOW</span>
+          <h3 class="feature-title">Resizable 2D Popup Window</h3>
+          <p class="feature-desc">
+            Fly any aircraft in X-Plane 12 with a native, movable, and resizable 2D floating window accessible anytime from the simulator menu.
+          </p>
+          <ul class="feature-bullet-list">
+            <li>Quick toggle via Plugins menu or custom keyboard shortcut</li>
+            <li>Freely resizable and dockable anywhere across your displays</li>
+            <li>Universal compatibility with any default or add-on aircraft</li>
           </ul>
         </div>
 
@@ -259,7 +282,7 @@ const carouselSlides = [
           </p>
           <ul class="feature-bullet-list">
             <li>Instant real-time synchronization between the cockpit and your tablet</li>
-            <li>Responsive touch controls with pinch-to-zoom on moving maps and airport charts</li>
+            <li>Responsive touch controls with pinch-to-zoom on maps and charts</li>
             <li>100% private and local: runs entirely across your home Wi-Fi network</li>
           </ul>
         </div>
@@ -284,7 +307,7 @@ const carouselSlides = [
           <div class="app-card-icon">⚡</div>
           <h3 class="app-card-title">Takeoff & Landing Performance</h3>
           <p class="app-card-desc">
-            Accurate Airbus performance calculation engines. Computes optimal flexible temperature, flap configuration (CONF 1+F / CONF 2 / CONF 3), V1, VR, V2 speeds, and required stopping distance based on runway condition, wind, and temperature.
+            Accurate performance calculation engines. Computes optimal flexible temperature, flap configurations, V1, VR, V2 speeds, required stopping distance, obstacle margins, and single-engine go-around climb gradient.
           </p>
           <span class="app-card-tag">FMGS MCDU Scratchpad Sync</span>
         </div>
@@ -294,9 +317,9 @@ const carouselSlides = [
           <div class="app-card-icon">⚖️</div>
           <h3 class="app-card-title">Weight, Balance & CG Envelope</h3>
           <p class="app-card-desc">
-            Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram showing Zero Fuel Weight CG and Takeoff Weight CG limits.
+            Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram for airliners and universal payload/fuel station loading for any aircraft.
           </p>
-          <span class="app-card-tag">Direct ToLiss Payload Injection</span>
+          <span class="app-card-tag">Direct Aircraft Payload Injection</span>
         </div>
 
         <!-- App 3: SimBrief OFP -->
@@ -324,7 +347,7 @@ const carouselSlides = [
           <div class="app-card-icon">🚪</div>
           <h3 class="app-card-title">Ground Services & Checklists</h3>
           <p class="app-card-desc">
-            Control passenger doors, cargo doors, ground power units (GPU), high-pressure air, and wheel chocks directly from the tablet. Includes interactive normal Airbus checklists.
+            Manage airliner doors, GPU, air carts, and GA servicing equipment (tie-downs, chocks, engine covers, flags) directly from dynamic airframe schematics. Includes airframe-tailored operational checklists.
           </p>
           <span class="app-card-tag">Ground Services & Checklists</span>
         </div>
@@ -376,7 +399,7 @@ const carouselSlides = [
             </li>
             <li>
               <span class="perk-icon">✓</span>
-              <span>Full ToLiss fleet support (A319, A320, A321, A330, A340)</span>
+              <span>Universal aircraft support + deep airframe profiles (Airbus, C172, DA42)</span>
             </li>
             <li>
               <span class="perk-icon">✓</span>
@@ -568,7 +591,7 @@ const carouselSlides = [
               </span>
             </div>
             <div class="compat-indicator">
-              <span>✈ Compatible with X-Plane 12.4+ and ToLiss Airbus fleet</span>
+              <span>✈ Compatible with X-Plane 12 and any aircraft</span>
             </div>
           </div>
         </div>
@@ -619,9 +642,9 @@ const carouselSlides = [
 
         <div class="step-card glass-panel">
           <div class="step-num">02</div>
-          <h3 class="step-title">Load Any ToLiss Aircraft</h3>
+          <h3 class="step-title">Load Any Aircraft</h3>
           <p class="step-desc">
-            Launch X-Plane 12 and load the A319, A320, A321, A330-900, or A340-600. The tablet in the 3D cockpit immediately powers on with AlphaFloor EFB.
+            Launch X-Plane 12 and load any aircraft. On supported aircraft, the 3D cockpit tablet immediately powers on; on any aircraft, open the 2D floating window from Plugins &gt; AlphaFloor EFB &gt; Show EFB Window.
           </p>
         </div>
 
@@ -674,9 +697,16 @@ const carouselSlides = [
 
         <div class="faq-item glass-panel">
           <h3 class="faq-question">Which aircraft are currently supported?</h3>
-          <p class="faq-answer">
-            AlphaFloor EFB is deeply integrated and optimized for the entire <strong>ToLiss Airbus fleet</strong> (A319, A320neo, A321, A321neo/XLR, A330-900, and A340-600) with dedicated dataref synchronizations for MCDU scratchpads, weight and balance, dynamic CG envelope, doors, fuel, and ground equipment.
-          </p>
+          <div class="faq-answer">
+            <p>
+              AlphaFloor EFB works across <strong>all X-Plane 12 aircraft</strong> via its native 2D floating popup window, AviTab 3D mesh integration, and external Wi-Fi tablet streaming. In addition, it features deep, dedicated airframe profiles, custom 3D cockpit integrations, and operational checklists for:
+            </p>
+            <ul>
+              <li><strong>Commercial Airliners:</strong> ToLiss A319, ToLiss A320 & A320neo, ToLiss A321, A321neo, A321LR & A321XLR, ToLiss A330-900, ToLiss A340-600, and Laminar Research Airbus A330-300 (featuring native 3D tablet injection via the X-Plane Avionics API).</li>
+              <li><strong>General Aviation:</strong> Aerobask Diamond DA42 NG, Airfoillabs Cessna 172 Digital, and Laminar Research Cessna 172.</li>
+              <li><strong>All Other Aircraft:</strong> Operates in any aircraft with universal fuel and payload loading, SimBrief flight planning, live weather and radar, Navigraph charts, PDF documents, and web browser.</li>
+            </ul>
+          </div>
         </div>
 
         <div class="faq-item glass-panel">
@@ -1448,6 +1478,15 @@ const carouselSlides = [
     font-size: 0.95rem;
     line-height: 1.7;
     color: var(--text-secondary);
+  }
+
+  .faq-answer ul {
+    margin: 0.75rem 0 0 1.25rem;
+    padding-left: 0.5rem;
+  }
+
+  .faq-answer li {
+    margin-bottom: 0.5rem;
   }
 
   /* Responsive Adjustments */
