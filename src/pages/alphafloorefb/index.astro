@@ -6,11 +6,25 @@ const release = await getLatestRelease();
 
 const carouselSlides = [
   {
-    id: 'home',
-    title: 'Home Screen & Launcher',
-    caption: 'Modern EFB launcher',
-    image: '/images/alphafloorefb/HomeScreen.png',
-    tab: 'Home',
+    id: 'a330-cockpit',
+    title: 'In-Cockpit 3D Tablet — Laminar A330-300',
+    caption: 'Standalone 3D tablet hardware model injected directly into the cockpit via the modern X-Plane Avionics API',
+    image: '/images/alphafloorefb/CockpitA330Laminar.jpg',
+    tab: 'A330-300 3D',
+  },
+  {
+    id: 'c172-cockpit',
+    title: 'Cockpit EFB Integration — Airfoillabs C172NG',
+    caption: 'Seamless touchscreen integration rendered directly onto the Airfoillabs Cessna 172NG Digital cockpit panel display',
+    image: '/images/alphafloorefb/CockpitC172Airfoillabs.jpg',
+    tab: 'C172NG Digital',
+  },
+  {
+    id: 'da42-cockpit',
+    title: 'Cockpit EFB Integration — Aerobask DA42NG',
+    caption: 'Native touchscreen integration rendered directly onto the Aerobask Diamond DA42 NG 3D cockpit tablet',
+    image: '/images/alphafloorefb/CockpitDA42Aerobask.jpg',
+    tab: 'DA42 NG',
   },
   {
     id: 'simbrief',
@@ -72,8 +86,8 @@ const carouselSlides = [
 ---
 
 <Layout
-  title="AlphaFloor EFB — Universal Electronic Flight Bag for X-Plane 12"
-  description="Universal Electronic Flight Bag for X-Plane 12. Integrated into 3D cockpit tablets, resizable 2D floating window, and accessible from any iPad, tablet, or browser over local Wi-Fi. Features deep airframe profiles for Airbus fleet, Cessna 172, and Diamond DA42."
+  title="AlphaFloor EFB — Modern Electronic Flight Bag for X-Plane 12"
+  description="Modern Electronic Flight Bag for X-Plane 12. Integrated into 3D cockpit tablets on supported aircraft, resizable 2D floating window, and accessible from any iPad, tablet, or browser over local Wi-Fi. Features deep airframe profiles for Airbus fleet, Cessna 172, and Diamond DA42."
   image="/images/alphafloorefb-icon.png"
 >
   <!-- Hero Section -->
@@ -82,16 +96,16 @@ const carouselSlides = [
       <div class="efb-hero-badge-wrap">
         <span class="section-tag">
           <img src="/images/alphafloorefb-icon.png" alt="AlphaFloor EFB" class="hero-badge-icon" width="22" height="22" />
-          <span>Universal Electronic Flight Bag · X-Plane 12</span>
+          <span>Modern Electronic Flight Bag · X-Plane 12</span>
         </span>
       </div>
 
       <h1 class="efb-hero-title">
-        The Modern Universal EFB for <span class="gradient-text">X-Plane 12</span>
+        The Modern Electronic Flight Bag for <span class="gradient-text">X-Plane 12</span>
       </h1>
 
       <p class="efb-hero-subtitle">
-        Fly any aircraft in X-Plane 12 with a native 3D cockpit tablet, a resizable 2D floating popup window, and external tablet streaming to your iPad, Android tablet, phone, or laptop over Wi-Fi.
+        Fly with native 3D cockpit integration on supported airframes, or bring the EFB to any aircraft via the resizable 2D floating window and Wi-Fi streaming to your iPad, tablet, or phone.
       </p>
 
       <div class="efb-hero-actions">
@@ -126,7 +140,7 @@ const carouselSlides = [
 
       <!-- Quick Aircraft Fleet Compatibility Pills -->
       <div class="fleet-strip">
-        <span class="fleet-label">SUPPORTED AIRCRAFT:</span>
+        <span class="fleet-label">SUPPORTED FLEET:</span>
         <div class="fleet-tags">
           <span class="fleet-badge">ToLiss A319</span>
           <span class="fleet-badge">ToLiss A320 / A320neo</span>
@@ -135,8 +149,8 @@ const carouselSlides = [
           <span class="fleet-badge">ToLiss A340-600</span>
           <span class="fleet-badge">Laminar Research A330-300</span>
           <span class="fleet-badge">Aerobask Diamond DA42 NG</span>
-          <span class="fleet-badge">Airfoillabs & Laminar C172</span>
-          <span class="fleet-badge">Any X-Plane 12 Aircraft</span>
+          <span class="fleet-badge">Airfoillabs C172 Digital</span>
+          <span class="fleet-badge">Other Aircraft (Generic Mode)</span>
         </div>
       </div>
 
@@ -240,12 +254,11 @@ const carouselSlides = [
           <span class="telemetry-badge cyan">IN-COCKPIT 3D DISPLAY</span>
           <h3 class="feature-title">Native 3D Cockpit Integration</h3>
           <p class="feature-desc">
-            Renders directly into 3D cockpit tablet displays and AviTab slots. For cockpits without built-in tablet meshes, AlphaFloor EFB injects a standalone 3D tablet model via the Avionics API.
+            Renders directly into 3D cockpit tablet displays on supported aircraft. On the Laminar Research A330-300, AlphaFloor EFB injects a standalone 3D tablet model directly via the modern Avionics API.
           </p>
           <ul class="feature-bullet-list">
-            <li>Native 3D mouse capture with responsive buttons and sliders</li>
-            <li>Crisp CEF rendering into panel texture atlas with pin-sharp text</li>
-            <li>Fullscreen tablet takeover and dual-mode overlay minimizing</li>
+            <li><strong>3D Tablet Injection:</strong> Exclusively for Laminar Research A330-300</li>
+            <li><strong>Cockpit EFB Screen Takeover:</strong> ToLiss fleet, Aerobask DA42, and Airfoillabs C172</li>
           </ul>
         </div>
 
@@ -256,15 +269,15 @@ const carouselSlides = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
             </svg>
           </div>
-          <span class="telemetry-badge green">UNIVERSAL 2D WINDOW</span>
-          <h3 class="feature-title">Resizable 2D Popup Window</h3>
+          <span class="telemetry-badge green">RESIZABLE 2D WINDOW</span>
+          <h3 class="feature-title">Standalone 2D Popup Window</h3>
           <p class="feature-desc">
             Fly any aircraft in X-Plane 12 with a native, movable, and resizable 2D floating window accessible anytime from the simulator menu.
           </p>
           <ul class="feature-bullet-list">
             <li>Quick toggle via Plugins menu or custom keyboard shortcut</li>
             <li>Freely resizable and dockable anywhere across your displays</li>
-            <li>Universal compatibility with any default or add-on aircraft</li>
+            <li>Enables Generic Mode in any aircraft where cockpit tablets aren't available</li>
           </ul>
         </div>
 
@@ -317,7 +330,7 @@ const carouselSlides = [
           <div class="app-card-icon">⚖️</div>
           <h3 class="app-card-title">Weight, Balance & CG Envelope</h3>
           <p class="app-card-desc">
-            Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram for airliners and universal payload/fuel station loading for any aircraft.
+            Real-time Center of Gravity (% MAC) calculations with an interactive dynamic envelope diagram for airliners and generic payload/fuel station loading for any aircraft.
           </p>
           <span class="app-card-tag">Direct Aircraft Payload Injection</span>
         </div>
@@ -399,7 +412,7 @@ const carouselSlides = [
             </li>
             <li>
               <span class="perk-icon">✓</span>
-              <span>Universal aircraft support + deep airframe profiles (Airbus, C172, DA42)</span>
+              <span>Broad aircraft support + deep airframe profiles (Airbus, C172, DA42)</span>
             </li>
             <li>
               <span class="perk-icon">✓</span>
@@ -565,7 +578,7 @@ const carouselSlides = [
               <div class="btn-text-block">
                 <span class="btn-main-title">Download AlphaFloor EFB <span id="download-ver-label">({release.version})</span></span>
                 <span class="btn-sub-caption">
-                  Universal Archive · <span id="download-size-label">{release.assetSizeFormatted}</span> · .ZIP
+                  All-in-One Archive · <span id="download-size-label">{release.assetSizeFormatted}</span> · .ZIP
                 </span>
               </div>
             </a>
@@ -699,12 +712,12 @@ const carouselSlides = [
           <h3 class="faq-question">Which aircraft are currently supported?</h3>
           <div class="faq-answer">
             <p>
-              AlphaFloor EFB works across <strong>all X-Plane 12 aircraft</strong> via its native 2D floating popup window, AviTab 3D mesh integration, and external Wi-Fi tablet streaming. In addition, it features deep, dedicated airframe profiles, custom 3D cockpit integrations, and operational checklists for:
+              AlphaFloor EFB provides tailored cockpit integrations for supported airframes and extends baseline flight bag capabilities to any aircraft in X-Plane 12:
             </p>
             <ul>
-              <li><strong>Commercial Airliners:</strong> ToLiss A319, ToLiss A320 & A320neo, ToLiss A321, A321neo, A321LR & A321XLR, ToLiss A330-900, ToLiss A340-600, and Laminar Research Airbus A330-300 (featuring native 3D tablet injection via the X-Plane Avionics API).</li>
-              <li><strong>General Aviation:</strong> Aerobask Diamond DA42 NG, Airfoillabs Cessna 172 Digital, and Laminar Research Cessna 172.</li>
-              <li><strong>All Other Aircraft:</strong> Operates in any aircraft with universal fuel and payload loading, SimBrief flight planning, live weather and radar, Navigraph charts, PDF documents, and web browser.</li>
+              <li><strong>Injected 3D Virtual Cockpit Tablet:</strong> Exclusively for the <strong>Laminar Research Airbus A330-300</strong> via X-Plane 12's modern Avionics API.</li>
+              <li><strong>Cockpit EFB Integration (Existing Screen Takeover):</strong> Exclusively for the <strong>ToLiss Airbus Fleet</strong> (A319, A320, A320neo, A321, A321neo / XLR, A330-900, A340-600), <strong>Aerobask Diamond DA42 NG</strong>, and <strong>Airfoillabs Cessna 172 Digital</strong>.</li>
+              <li><strong>Other Aircraft (Generic Mode):</strong> Operates in any X-Plane 12 aircraft via the resizable 2D floating popup window and Wi-Fi web tablet, providing SimBrief OFP flight plans, worldwide Navigraph charts, live weather radar, PDF documents viewer, checklist viewer, and standard fuel/payload loading.</li>
             </ul>
           </div>
         </div>
@@ -831,16 +844,9 @@ const carouselSlides = [
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.25rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .carousel-tabs::-webkit-scrollbar {
-    display: none;
   }
 
   .carousel-tab {
@@ -1495,6 +1501,19 @@ const carouselSlides = [
       padding: 0.85rem;
     }
 
+    .carousel-tabs {
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .carousel-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
     .carousel-caption {
       flex-direction: column;
       align-items: flex-start;
@@ -1920,6 +1939,9 @@ const carouselSlides = [
         const isActive = i === currentIndex;
         tab.classList.toggle('active', isActive);
         tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive && window.innerWidth <= 860) {
+          tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
       });
 
       dots.forEach((dot, i) => {
