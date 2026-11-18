@@ -1,0 +1,171 @@
+{
+  "aircraft": [
+    {
+      "name": "ToLiss A319",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A319"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      }
+    },
+    {
+      "name": "ToLiss A320",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A320"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      }
+    },
+    {
+      "name": "ToLiss A320Neo",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A20N"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      }
+    },
+    {
+      "name": "ToLiss A321",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A321"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      }
+    },
+    {
+      "name": "ToLiss A321Neo",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A21N"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [2119, 9, 3143, 649]
+      }
+    },
+    {
+      "name": "ToLiss A330-900",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A339"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      }
+    },
+    {
+      "name": "ToLiss A340-600",
+      "authors": ["Gliding Kiwi", "GlidingKiwi"],
+      "icaos": ["A346"],
+      "split_top_bar": true,
+      "t_split": 0.19008,
+      "captain": {
+        "top_bar": [4, 1878, 1331, 2066],
+        "normal_content": [4, 1076, 1331, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      },
+      "first_officer": {
+        "top_bar": [1337, 1878, 2662, 2066],
+        "normal_content": [1337, 1076, 2662, 1878],
+        "avitab_slot": [142, 16, 1166, 656]
+      }
+    },
+    {
+      "name": "Airfoillabs C172 Digital",
+      "authors": ["Airfoillabs"],
+      "icaos": ["C172"],
+      "split_top_bar": false,
+      "has_native_efb_minimize": true,
+      "captain": {
+        "avitab_slot": [0, 0, 1024, 768]
+      }
+    },
+    {
+      "name": "Aerobask Diamond DA42NG",
+      "authors": ["Aerobask and SkunkCrafts", "Aerobask"],
+      "icaos": ["DA42"],
+      "split_top_bar": false,
+      "cef_resolution": [800, 510],
+      "late_draw": true,
+      "has_native_efb_minimize": true,
+      "captain": {
+        "avitab_slot": [3296, 1538, 4096, 2048]
+      }
+    },
+    {
+      "name": "Laminar Research Airbus A330-300",
+      "authors": [
+        "Alex Unruh",
+        "Rodrigo Fernandez",
+        "Massimo Durando",
+        "Jim Gregory",
+        "Marco Auer",
+        "Laminar Research",
+        "Laminar"
+      ],
+      "icaos": ["A333"],
+      "split_top_bar": false,
+      "cef_resolution": [1024, 768],
+      "captain": {
+        "avitab_slot": [0, 0, 1024, 768]
+      },
+      "tablet_3d": {
+        "enabled": true,
+        "object_path": "objects/AlphaFloor_Tablet.obj",
+        "device_id": "AlphaFloorEFB_A330",
+        "position": [-0.95, 1.85, -27.3],
+        "rotation": [0.0, -75.0, 0.0],
+        "screen_resolution": [1024, 768]
+      }
+    }
+  ]
+}
